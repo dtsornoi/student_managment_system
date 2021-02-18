@@ -9,14 +9,6 @@ public class AttendanceController {
 
     }
 
-    void getLecturesAttended(){
-
-    }
-
-    void getLecturesDelivered(){
-
-    }
-
     void calculatePercentage(){
 
     }
