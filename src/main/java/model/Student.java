@@ -6,20 +6,4 @@ public class Student {
     private String lastName;
     //TODO Class
     private String address;
-
-    void login(){
-
-    }
-
-    void showAttendance(){
-
-    }
-
-    void showMarksSheet(){
-
-    }
-
-    void showCourses(){
-
-    }
 }

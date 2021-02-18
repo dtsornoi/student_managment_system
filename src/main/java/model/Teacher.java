@@ -5,16 +5,4 @@ public class Teacher {
     private String teacherName;
     private String teacherAddress;
     //TODO courseToTeach
-
-    void login(){
-
-    }
-
-    void modifyMarksSheet(){
-
-    }
-
-    void modifyAttendance(){
-
-    }
 }
