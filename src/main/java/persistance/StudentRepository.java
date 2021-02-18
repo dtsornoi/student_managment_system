@@ -1,27 +1,26 @@
 package persistance;
 
-import model.Attendance;
+import model.Student;
 import util.DBUtil;
 
 import javax.persistence.EntityManager;
 
-public class AttendanceRepository {
+public class StudentRepository {
     private EntityManager entityManager;
 
-
-    public AttendanceRepository() {
+    public StudentRepository() {
         entityManager = DBUtil.getEntityManager();
     }
 
-    public void save(Attendance attendance){
-        try{
+    public void save(Student student){
+        try {
             entityManager.getTransaction().begin();
-            entityManager.persist(attendance);
+            entityManager.persist(student);
             entityManager.getTransaction().commit();
-        } catch (Exception e) {
+        } catch (Exception e){
             entityManager.getTransaction().rollback();
             e.printStackTrace();
         }
-    }
 
+    }
 }
