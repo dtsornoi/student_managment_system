@@ -21,6 +21,27 @@ public class CourseRepository {
             entityManager.getTransaction().rollback();
             e.printStackTrace();
         }
+    }
 
+    public void update(Course course){
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.merge(course);
+            entityManager.getTransaction().commit();
+        } catch (Exception e){
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        }
+    }
+
+    public void delete(Course course){
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.remove(course);
+            entityManager.getTransaction().commit();
+        } catch (Exception e){
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        }
     }
 }

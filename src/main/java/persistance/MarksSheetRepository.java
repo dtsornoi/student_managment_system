@@ -21,6 +21,27 @@ public class MarksSheetRepository {
             entityManager.getTransaction().rollback();
             e.printStackTrace();
         }
+    }
 
+    public void update(MarksSheet marksSheet){
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.merge(marksSheet);
+            entityManager.getTransaction().commit();
+        } catch (Exception e){
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        }
+    }
+
+    public void delete(MarksSheet marksSheet){
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.remove(marksSheet);
+            entityManager.getTransaction().commit();
+        } catch (Exception e){
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        }
     }
 }

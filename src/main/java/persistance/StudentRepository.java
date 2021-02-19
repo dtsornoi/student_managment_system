@@ -21,6 +21,27 @@ public class StudentRepository {
             entityManager.getTransaction().rollback();
             e.printStackTrace();
         }
+    }
 
+    public void update(Student student){
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.merge(student);
+            entityManager.getTransaction().commit();
+        } catch (Exception e){
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        }
+    }
+
+    public void delete(Student student){
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.remove(student);
+            entityManager.getTransaction().commit();
+        } catch (Exception e){
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        }
     }
 }

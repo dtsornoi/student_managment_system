@@ -24,4 +24,26 @@ public class AttendanceRepository {
         }
     }
 
+    public void update(Attendance attendance){
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.merge(attendance);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        }
+    }
+
+    public void delete(Attendance attendance){
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.remove(attendance);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        }
+    }
+
 }

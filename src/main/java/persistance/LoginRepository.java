@@ -21,6 +21,27 @@ public class LoginRepository {
             entityManager.getTransaction().rollback();
             e.printStackTrace();
         }
+    }
 
+    public void update(Login login){
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.merge(login);
+            entityManager.getTransaction().commit();
+        } catch (Exception e){
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        }
+    }
+
+    public void delete(Login login){
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.remove(login);
+            entityManager.getTransaction().commit();
+        } catch (Exception e){
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        }
     }
 }

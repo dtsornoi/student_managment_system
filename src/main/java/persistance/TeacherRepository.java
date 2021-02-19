@@ -22,4 +22,26 @@ public class TeacherRepository {
             e.printStackTrace();
         }
     }
+
+    public void update(Teacher teacher){
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.merge(teacher);
+            entityManager.getTransaction().commit();
+        } catch (Exception e){
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        }
+    }
+
+    public void delete(Teacher teacher){
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.remove(teacher);
+            entityManager.getTransaction().commit();
+        } catch (Exception e){
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        }
+    }
 }
