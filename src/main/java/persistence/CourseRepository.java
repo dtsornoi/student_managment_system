@@ -1,21 +1,21 @@
-package persistance;
+package persistence;
 
-import model.Login;
+import model.Course;
 import util.DBUtil;
 
 import javax.persistence.EntityManager;
 
-public class LoginRepository {
+public class CourseRepository {
     private EntityManager entityManager;
 
-    public LoginRepository() {
+    public CourseRepository() {
         entityManager = DBUtil.getEntityManager();
     }
 
-    public void save(Login login){
-        try {
+    public void save(Course course){
+        try{
             entityManager.getTransaction().begin();
-            entityManager.persist(login);
+            entityManager.persist(course);
             entityManager.getTransaction().commit();
         } catch (Exception e){
             entityManager.getTransaction().rollback();
@@ -23,10 +23,10 @@ public class LoginRepository {
         }
     }
 
-    public void update(Login login){
-        try {
+    public void update(Course course){
+        try{
             entityManager.getTransaction().begin();
-            entityManager.merge(login);
+            entityManager.merge(course);
             entityManager.getTransaction().commit();
         } catch (Exception e){
             entityManager.getTransaction().rollback();
@@ -34,10 +34,10 @@ public class LoginRepository {
         }
     }
 
-    public void delete(Login login){
-        try {
+    public void delete(Course course){
+        try{
             entityManager.getTransaction().begin();
-            entityManager.remove(login);
+            entityManager.remove(entityManager.merge(course));
             entityManager.getTransaction().commit();
         } catch (Exception e){
             entityManager.getTransaction().rollback();

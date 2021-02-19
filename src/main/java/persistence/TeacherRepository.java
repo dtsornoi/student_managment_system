@@ -1,21 +1,21 @@
-package persistance;
+package persistence;
 
-import model.Course;
+import model.Teacher;
 import util.DBUtil;
 
 import javax.persistence.EntityManager;
 
-public class CourseRepository {
+public class TeacherRepository {
     private EntityManager entityManager;
 
-    public CourseRepository() {
+    public TeacherRepository() {
         entityManager = DBUtil.getEntityManager();
     }
 
-    public void save(Course course){
-        try{
+    public void save(Teacher teacher){
+        try {
             entityManager.getTransaction().begin();
-            entityManager.persist(course);
+            entityManager.persist(teacher);
             entityManager.getTransaction().commit();
         } catch (Exception e){
             entityManager.getTransaction().rollback();
@@ -23,10 +23,10 @@ public class CourseRepository {
         }
     }
 
-    public void update(Course course){
-        try{
+    public void update(Teacher teacher){
+        try {
             entityManager.getTransaction().begin();
-            entityManager.merge(course);
+            entityManager.merge(teacher);
             entityManager.getTransaction().commit();
         } catch (Exception e){
             entityManager.getTransaction().rollback();
@@ -34,10 +34,10 @@ public class CourseRepository {
         }
     }
 
-    public void delete(Course course){
-        try{
+    public void delete(Teacher teacher){
+        try {
             entityManager.getTransaction().begin();
-            entityManager.remove(course);
+            entityManager.remove(entityManager.merge(teacher));
             entityManager.getTransaction().commit();
         } catch (Exception e){
             entityManager.getTransaction().rollback();

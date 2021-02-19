@@ -1,4 +1,4 @@
-package persistance;
+package persistence;
 
 import model.Student;
 import util.DBUtil;
@@ -37,7 +37,7 @@ public class StudentRepository {
     public void delete(Student student){
         try {
             entityManager.getTransaction().begin();
-            entityManager.remove(student);
+            entityManager.remove(entityManager.merge(student));
             entityManager.getTransaction().commit();
         } catch (Exception e){
             entityManager.getTransaction().rollback();

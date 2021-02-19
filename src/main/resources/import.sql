@@ -1,30 +1,30 @@
-INSERT INTO attendance (lectures_delivered, attended)
-SELECT (5, true)
+INSERT INTO attendance (attended, lectures_delivered)
+SELECT 5, true
 WHERE NOT EXISTS
-    (SELECT lectures_delivered, attended
+    (SELECT *
      FROM attendance
-     WHERE lectures_delivered = 5 AND attended = true);
+     WHERE attended = true AND lectures_delivered = 5);
 
 INSERT INTO course (course_name)
-SELECT ('Java Fundamentals')
+SELECT 'Java Fundamentals'
 WHERE NOT EXISTS
-    (SELECT course_name
+    (SELECT *
      FROM course
      WHERE course_name = 'Java Fundamentals');
 
-INSERT INTO students (first_name, last_name, address)
-SELECT ('Indrek', 'Kaul','Tuukri 15')
+INSERT INTO students (address, first_name, last_name)
+SELECT 'Narva mnt 13','John','Smith'
 WHERE NOT EXISTS
-    (SELECT first_name, last_name, address
+    (SELECT *
      FROM students
-     WHERE first_name = 'Indrek' AND last_name = 'Kaul' AND address = 'Tuukri 15');
+     WHERE address = 'Tuukri 15' AND first_name = 'Indrek' AND last_name = 'Kaul');
 
-INSERT INTO teachers (teacher_name, teacher_address)
-SELECT ('Hatef Palizgar', 'Ehitajate tee 5')
+INSERT INTO teachers (teacher_address, teacher_name)
+SELECT 'Ehitajate tee 5', 'Hatef Palizgar'
 WHERE NOT EXISTS
-    (SELECT teacher_name, teacher_address
+    (SELECT *
      FROM teachers
-     WHERE teacher_name_name = 'Hatef Palizgar' AND teacher_address = 'Ehitajate tee 5');
+     WHERE teacher_address = 'Ehitajate tee 5' AND teacher_name = 'Hatef Palizgar');
 
 
 

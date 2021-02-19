@@ -1,4 +1,4 @@
-package persistance;
+package persistence;
 
 import model.Attendance;
 import util.DBUtil;
@@ -38,7 +38,7 @@ public class AttendanceRepository {
     public void delete(Attendance attendance){
         try{
             entityManager.getTransaction().begin();
-            entityManager.remove(attendance);
+            entityManager.remove(entityManager.merge(attendance));
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             entityManager.getTransaction().rollback();

@@ -1,4 +1,4 @@
-package persistance;
+package persistence;
 
 import model.MarksSheet;
 import util.DBUtil;
@@ -37,7 +37,7 @@ public class MarksSheetRepository {
     public void delete(MarksSheet marksSheet){
         try {
             entityManager.getTransaction().begin();
-            entityManager.remove(marksSheet);
+            entityManager.remove(entityManager.merge(marksSheet));
             entityManager.getTransaction().commit();
         } catch (Exception e){
             entityManager.getTransaction().rollback();
