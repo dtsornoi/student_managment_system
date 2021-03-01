@@ -1,14 +1,15 @@
 package model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name = "students")
-@Data
-@NoArgsConstructor
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,4 +28,11 @@ public class Student {
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
+
+    public Student(int studentId, String firstName, String lastName, String address) {
+        this.studentId = studentId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+    }
 }
