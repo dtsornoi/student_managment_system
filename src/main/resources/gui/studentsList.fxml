@@ -7,11 +7,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.StudentController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-max-width: 600; -fx-max-height: 400;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.StudentController">
    <children>
       <HBox prefHeight="56.0" prefWidth="600.0">
          <children>
-            <Button fx:id="studentButton" mnemonicParsing="false" onAction="#showStudentList" prefHeight="45.0" prefWidth="137.0" text="Students" />
+            <Button fx:id="studentButton" mnemonicParsing="false" onAction="#showStudentList" prefHeight="40.0" prefWidth="162.0" text="Students" />
+            <Button mnemonicParsing="false" onAction="#showTeachersTable" prefHeight="40.0" prefWidth="149.0" text="Teachers" />
+            <Button mnemonicParsing="false" onAction="#showAllCourses" prefHeight="40.0" prefWidth="140.0" text="Courses" />
+            <Button mnemonicParsing="false" onAction="#showAllMarks" prefHeight="40.0" prefWidth="163.0" text="Marks" />
          </children>
       </HBox>
       <TableView fx:id="students" prefHeight="292.0" prefWidth="600.0">
