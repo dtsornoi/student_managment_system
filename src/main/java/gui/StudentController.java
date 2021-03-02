@@ -1,7 +1,9 @@
 package gui;
 
+import controller.StudentControllerClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -16,6 +18,13 @@ import java.util.ResourceBundle;
 public class StudentController implements Initializable {
 
     private Course course;
+    private NextWindow nextWindow;
+    private StudentControllerClass studentControllerClass;
+
+    public StudentController(){
+        nextWindow = new NextWindow();
+        studentControllerClass = new StudentControllerClass();
+    }
 
     @FXML
     private TableView<Student> students;
@@ -32,15 +41,15 @@ public class StudentController implements Initializable {
     @FXML
     private TableColumn<Student, String> address;
 
+    @FXML
+    public void addStudent(ActionEvent event){
+        nextWindow.closeWindowAndOpenNext(event, "gui/saveNewStudent.fxml");
+    }
 
-    ObservableList<Student> list = FXCollections.observableArrayList(
-            new Student(1, "Dmitri", "Tsornoi", "Address1"),
-            new Student(2, "Mark", "Salumaa", "Address2"),
-            new Student(3, "Indrek", "Kaul", "Address3"),
-            new Student(4, "Izzet", "Ertopak", "Address4"),
-            new Student(5, "Jamshid", "Luftllaev", "Address5")
-    );
-
+    @FXML
+    public void deleteStudent(ActionEvent event){
+        nextWindow.closeWindowAndOpenNext(event, "gui/deleteStudent.fxml");
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -49,6 +58,11 @@ public class StudentController implements Initializable {
         lastName.setCellValueFactory(new PropertyValueFactory<Student,String>("lastName"));
         address.setCellValueFactory(new PropertyValueFactory<Student,String>("address"));
 
+        ObservableList<Student> list = FXCollections.observableList(studentControllerClass.listAllStudents());
+
+        if (list.isEmpty()) {
+            list = FXCollections.emptyObservableList();
+        }
         students.setItems(list);
     }
 }

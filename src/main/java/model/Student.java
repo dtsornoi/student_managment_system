@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @ToString
@@ -29,8 +30,7 @@ public class Student {
     @JoinColumn(name = "course_id")
     private Course course;
 
-    public Student(int studentId, String firstName, String lastName, String address) {
-        this.studentId = studentId;
+    public Student(String firstName, String lastName, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;

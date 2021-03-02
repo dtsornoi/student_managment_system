@@ -11,13 +11,12 @@ public class NextWindow {
     private Stage stage;
     private Scene scene;
 
-    public void closeWindowAndOpenNext(ActionEvent actionEvent, String string){
+    public void closeWindowAndOpenNext(ActionEvent actionEvent, String guiFXML){
         try {
             Node source = (Node) actionEvent.getSource();
             stage = (Stage) source.getScene().getWindow();
             stage.close();
-            Parent root;
-            scene = new Scene (FXMLLoader.load(getClass().getClassLoader().getResource(string)));
+            scene = new Scene (FXMLLoader.load(getClass().getClassLoader().getResource(guiFXML)));
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {

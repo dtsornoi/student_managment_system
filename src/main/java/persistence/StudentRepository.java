@@ -4,6 +4,7 @@ import model.Student;
 import util.DBUtil;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class StudentRepository {
     private EntityManager entityManager;
@@ -44,4 +45,11 @@ public class StudentRepository {
             e.printStackTrace();
         }
     }
+
+    public List<Student> allStudents() {
+        String sql = "FROM Student";
+
+        return entityManager.createQuery(sql).getResultList();
+    }
+
 }
