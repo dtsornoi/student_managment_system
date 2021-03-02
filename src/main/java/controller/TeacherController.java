@@ -12,4 +12,8 @@ public class TeacherController {
     void modifyAttendance(){
 
     }
+
+    void displayAllTeachers(){
+
+    }
 }
