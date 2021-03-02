@@ -12,9 +12,9 @@
       <HBox prefHeight="41.0" prefWidth="600.0">
          <children>
             <Button fx:id="studentButton" mnemonicParsing="false" onAction="#showStudentList" prefHeight="40.0" prefWidth="162.0" text="Students" />
-            <Button mnemonicParsing="false" onAction="#showTeachersTable" prefHeight="40.0" prefWidth="149.0" text="Teachers" />
-            <Button mnemonicParsing="false" onAction="#showAllCourses" prefHeight="40.0" prefWidth="140.0" text="Courses" />
-            <Button mnemonicParsing="false" onAction="#showAllMarks" prefHeight="40.0" prefWidth="163.0" text="Marks" />
+            <Button fx:id="teacherButton" mnemonicParsing="false" onAction="#showTeacherList" prefHeight="40.0" prefWidth="149.0" text="Teachers" />
+            <Button fx:id="courseButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" text="Courses" />
+            <Button fx:id="gradeButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="163.0" text="Grades" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="159.0" prefWidth="600.0">

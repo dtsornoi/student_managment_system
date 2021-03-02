@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-max-width: 600; -fx-max-height: 400;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TeacherController">
+   <children>
+      <HBox prefHeight="56.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="studentButton" mnemonicParsing="false" onAction="#showStudentList" prefHeight="40.0" prefWidth="162.0" text="Students" />
+            <Button fx:id="teacherButton" mnemonicParsing="false" onAction="#showTeacherList" prefHeight="40.0" prefWidth="149.0" text="Teachers" />
+            <Button fx:id="courseButton" mnemonicParsing="false"  prefHeight="40.0" prefWidth="140.0" text="Courses" />
+            <Button fx:id="gradeButton" mnemonicParsing="false"  prefHeight="40.0" prefWidth="163.0" text="Grades" />
+         </children>
+      </HBox>
+      <TableView fx:id="teachers" prefHeight="292.0" prefWidth="600.0">
+         <columns>
+            <TableColumn fx:id="teacherId" prefWidth="157.0" text="ID" />
+            <TableColumn fx:id="teacherFirstName" prefWidth="144.0" text="First Name" />
+            <TableColumn fx:id="teacherLastName" prefWidth="139.0" text="Last Name" />
+            <TableColumn fx:id="address" prefWidth="159.0" text="Address" />
+         </columns>
+      </TableView>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="addButton" mnemonicParsing="false"  text="Add">
+               <HBox.margin>
+                  <Insets right="50.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" text="Delete" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

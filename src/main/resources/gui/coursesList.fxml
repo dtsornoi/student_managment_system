@@ -13,16 +13,16 @@
          <children>
             <Button fx:id="studentButton" mnemonicParsing="false" onAction="#showStudentList" prefHeight="40.0" prefWidth="162.0" text="Students" />
             <Button fx:id="teacherButton" mnemonicParsing="false" onAction="#showTeacherList" prefHeight="40.0" prefWidth="149.0" text="Teachers" />
-            <Button fx:id="courseButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" text="Courses" />
-            <Button fx:id="gradeButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="163.0" text="Grades" />
+            <Button fx:id="courseButton" mnemonicParsing="false"  onAction="#showAllCourses" prefHeight="40.0" prefWidth="140.0" text="Courses" />
+            <Button fx:id="gradeButton" mnemonicParsing="false"  onAction="#showAllGrades" prefHeight="40.0" prefWidth="163.0" text="Grades" />
          </children>
       </HBox>
-      <TableView fx:id="students" prefHeight="292.0" prefWidth="600.0">
+      <TableView fx:id="courses" prefHeight="292.0" prefWidth="600.0">
          <columns>
-            <TableColumn fx:id="studentId" prefWidth="158.0" text="ID" />
-            <TableColumn fx:id="firstName" prefWidth="145.0" text="First Name" />
-            <TableColumn fx:id="lastName" prefWidth="138.0" text="Last Name" />
-            <TableColumn fx:id="address" prefWidth="158.0" text="Address" />
+            <TableColumn fx:id="courseId" prefWidth="157.0" text="ID" />
+            <TableColumn fx:id="courseName" prefWidth="144.0" text="Course" />
+            <TableColumn fx:id="gradeId" prefWidth="140.0" text="Grade" />
+            <TableColumn fx:id="teacherId" prefWidth="158.0" text="Teacher" />
          </columns>
       </TableView>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">

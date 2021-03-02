@@ -1,21 +1,21 @@
 package persistence;
 
-import model.MarksSheet;
+import model.Grades;
 import util.DBUtil;
 
 import javax.persistence.EntityManager;
 
-public class MarksSheetRepository {
+public class GradesRepository {
     private EntityManager entityManager;
 
-    public MarksSheetRepository() {
+    public GradesRepository() {
         entityManager = DBUtil.getEntityManager();
     }
 
-    public void save(MarksSheet marksSheet){
+    public void save(Grades grades){
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(marksSheet);
+            entityManager.persist(grades);
             entityManager.getTransaction().commit();
         } catch (Exception e){
             entityManager.getTransaction().rollback();
@@ -23,10 +23,10 @@ public class MarksSheetRepository {
         }
     }
 
-    public void update(MarksSheet marksSheet){
+    public void update(Grades grades){
         try {
             entityManager.getTransaction().begin();
-            entityManager.merge(marksSheet);
+            entityManager.merge(grades);
             entityManager.getTransaction().commit();
         } catch (Exception e){
             entityManager.getTransaction().rollback();
@@ -34,10 +34,10 @@ public class MarksSheetRepository {
         }
     }
 
-    public void delete(MarksSheet marksSheet){
+    public void delete(Grades grades){
         try {
             entityManager.getTransaction().begin();
-            entityManager.remove(entityManager.merge(marksSheet));
+            entityManager.remove(entityManager.merge(grades));
             entityManager.getTransaction().commit();
         } catch (Exception e){
             entityManager.getTransaction().rollback();

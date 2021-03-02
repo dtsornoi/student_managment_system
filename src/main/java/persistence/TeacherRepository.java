@@ -1,9 +1,11 @@
 package persistence;
 
+import model.Student;
 import model.Teacher;
 import util.DBUtil;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class TeacherRepository {
     private EntityManager entityManager;
@@ -43,5 +45,12 @@ public class TeacherRepository {
             entityManager.getTransaction().rollback();
             e.printStackTrace();
         }
+    }
+
+
+    public List<Teacher> allTeachers() {
+        String sql = "FROM Teacher";
+
+        return entityManager.createQuery(sql).getResultList();
     }
 }

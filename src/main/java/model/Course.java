@@ -14,14 +14,14 @@ public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "course_id")
-    private int id;
+    private int courseId;
 
     @Column(name = "course_name")
     private String courseName;
 
     @ManyToOne
-    @JoinColumn(name = "marks_sheet_id")
-    private MarksSheet marksSheet;
+    @JoinColumn(name = "grade_id")
+    private Grades grades;
 
     @ManyToOne
     @JoinColumn(name = "teacher_id")

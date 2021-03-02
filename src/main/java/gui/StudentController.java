@@ -1,6 +1,7 @@
 package gui;
 
 import controller.StudentControllerClass;
+import controller.TeacherControllerClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,10 +25,12 @@ public class StudentController implements Initializable {
     private Course course;
     private NextWindow nextWindow;
     private StudentControllerClass studentControllerClass;
+    private TeacherControllerClass teacherControllerClass;
 
     public StudentController(){
         nextWindow = new NextWindow();
         studentControllerClass = new StudentControllerClass();
+        teacherControllerClass = new TeacherControllerClass();
     }
 
     @FXML
@@ -48,6 +51,11 @@ public class StudentController implements Initializable {
     @FXML
     public void showStudentList(ActionEvent event){
         studentControllerClass.showStudentList(event);
+    }
+
+    @FXML
+    public void showTeacherList(ActionEvent event) {
+        teacherControllerClass.showTeacherList(event);
     }
 
     @FXML
@@ -74,4 +82,6 @@ public class StudentController implements Initializable {
         }
         students.setItems(list);
     }
+
+
 }

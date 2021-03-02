@@ -1,6 +1,7 @@
 package gui;
 
 import controller.StudentControllerClass;
+import controller.TeacherControllerClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,6 +12,7 @@ import java.util.ResourceBundle;
 
 public class DeleteStudentController implements Initializable {
 
+    private TeacherControllerClass teacherControllerClass;
     private StudentControllerClass studentControllerClass;
     private NextWindow nextWindow;
 
@@ -18,6 +20,7 @@ public class DeleteStudentController implements Initializable {
     private TextField studentId;
 
     public DeleteStudentController(){
+        teacherControllerClass = new TeacherControllerClass();
         studentControllerClass = new StudentControllerClass();
         nextWindow = new NextWindow();
 
@@ -26,6 +29,11 @@ public class DeleteStudentController implements Initializable {
     @FXML
     public void showStudentList(ActionEvent event){
         studentControllerClass.showStudentList(event);
+    }
+
+    @FXML
+    public void showTeacherList(ActionEvent event){
+        teacherControllerClass.showTeacherList(event);
     }
 
     @FXML
@@ -38,4 +46,6 @@ public class DeleteStudentController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+
 }
