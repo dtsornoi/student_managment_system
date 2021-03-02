@@ -4,6 +4,8 @@ import controller.StudentControllerClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
 import model.Student;
 import persistence.StudentRepository;
@@ -29,6 +31,11 @@ public class SaveNewStudentController implements Initializable {
     public SaveNewStudentController(){
         studentControllerClass = new StudentControllerClass();
         nextWindow = new NextWindow();
+    }
+
+    @FXML
+    public void showStudentList(ActionEvent event){
+        studentControllerClass.showStudentList(event);
     }
 
     @FXML

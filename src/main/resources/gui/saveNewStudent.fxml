@@ -6,9 +6,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SaveNewStudentController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SaveNewStudentController">
    <children>
+      <HBox cacheShape="false" prefHeight="45.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="studentButton" mnemonicParsing="false" onAction="#showStudentList" prefHeight="45.0" prefWidth="137.0" text="Students" />
+         </children>
+      </HBox>
       <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
          <children>
             <Label prefHeight="56.0" prefWidth="144.0" text="First Name:" />
@@ -27,6 +31,10 @@
             <TextField fx:id="addressInput" />
          </children>
       </HBox>
-      <Button mnemonicParsing="false" onAction="#saveNewStudent" text="Save" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="save" alignment="CENTER" mnemonicParsing="false" onAction="#saveNewStudent" text="Save" />
+         </children>
+      </HBox>
    </children>
 </VBox>

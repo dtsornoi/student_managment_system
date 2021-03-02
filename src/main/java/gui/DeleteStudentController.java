@@ -20,8 +20,14 @@ public class DeleteStudentController implements Initializable {
     public DeleteStudentController(){
         studentControllerClass = new StudentControllerClass();
         nextWindow = new NextWindow();
+
     }
-    
+
+    @FXML
+    public void showStudentList(ActionEvent event){
+        studentControllerClass.showStudentList(event);
+    }
+
     @FXML
     public void deleteStudent(ActionEvent event){
         studentControllerClass.deleteStudent(Integer.parseInt(studentId.getText()));

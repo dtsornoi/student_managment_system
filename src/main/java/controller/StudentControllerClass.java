@@ -1,5 +1,7 @@
 package controller;
 
+import gui.NextWindow;
+import javafx.event.ActionEvent;
 import model.Student;
 import persistence.StudentRepository;
 
@@ -8,9 +10,11 @@ import java.util.List;
 public class StudentControllerClass {
 
     private StudentRepository studentRepository;
+    private NextWindow nextWindow;
 
     public StudentControllerClass(){
         studentRepository = new StudentRepository();
+        nextWindow = new NextWindow();
     }
 
     void login(){
@@ -43,4 +47,9 @@ public class StudentControllerClass {
 
         studentRepository.delete(student);
     }
+
+    public void showStudentList(ActionEvent event){
+        nextWindow.closeWindowAndOpenNext(event, "gui/studentsList.fxml");
+    }
+
 }
