@@ -47,6 +47,16 @@ public class SaveNewStudentController implements Initializable {
     }
 
     @FXML
+    void showAllCourses(ActionEvent event){
+        // TODO
+    }
+
+    @FXML
+    void showAllGrades(ActionEvent event){
+        // TODO
+    }
+
+    @FXML
     public void saveNewStudent(ActionEvent event){
         Student student = new Student(firstNameInput.getText(), lastNameInput.getText(), addressInput.getText());
         studentControllerClass.addNewStudent(student);

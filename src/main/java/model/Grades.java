@@ -18,9 +18,6 @@ public class Grades {
     @Column(name = "grade")
     private int grade;
 
-    @Column(name = "average_grade")
-    private int averageGrade;
-
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;

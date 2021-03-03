@@ -47,7 +47,7 @@ public class TeacherController implements Initializable {
 
 
 
-     void addStudent() {
+    void addStudent() {
 
     }
 
@@ -57,14 +57,6 @@ public class TeacherController implements Initializable {
     }
 
 
-    void showAllCourses() {
-
-    }
-
-
-    void showAllGrades() {
-
-    }
 
     @FXML
     void showStudentList(ActionEvent event) {
@@ -74,6 +66,17 @@ public class TeacherController implements Initializable {
     @FXML
     void showTeacherList(ActionEvent event) {
         teacherControllerClass.showTeacherList(event);
+    }
+
+
+    @FXML
+    void showAllCourses(ActionEvent event){
+    // TODO
+    }
+
+    @FXML
+    void showAllGrades(ActionEvent event){
+         // TODO
     }
 
 

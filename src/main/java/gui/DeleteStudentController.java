@@ -37,6 +37,16 @@ public class DeleteStudentController implements Initializable {
     }
 
     @FXML
+    void showAllCourses(ActionEvent event){
+        // TODO
+    }
+
+    @FXML
+    void showAllGrades(ActionEvent event){
+        // TODO
+    }
+
+    @FXML
     public void deleteStudent(ActionEvent event){
         studentControllerClass.deleteStudent(Integer.parseInt(studentId.getText()));
         nextWindow.closeWindowAndOpenNext(event, "gui/studentsList.fxml");

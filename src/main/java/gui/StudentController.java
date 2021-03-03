@@ -59,6 +59,16 @@ public class StudentController implements Initializable {
     }
 
     @FXML
+    void showAllCourses(ActionEvent event){
+        // TODO
+    }
+
+    @FXML
+    void showAllGrades(ActionEvent event){
+        // TODO
+    }
+
+    @FXML
     public void addStudent(ActionEvent event) {
         nextWindow.closeWindowAndOpenNext(event, "gui/saveNewStudent.fxml");
     }
