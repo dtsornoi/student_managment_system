@@ -75,10 +75,10 @@ public class StudentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        studentId.setCellValueFactory(new PropertyValueFactory<Person,Integer>("studentId"));
-        firstName.setCellValueFactory(new PropertyValueFactory<Person,String>("firstName"));
-        lastName.setCellValueFactory(new PropertyValueFactory<Person,String>("lastName"));
-        address.setCellValueFactory(new PropertyValueFactory<Person,String>("address"));
+        studentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        address.setCellValueFactory(new PropertyValueFactory<>("address"));
 
         ObservableList<Person> list = FXCollections.observableList(personController.listAllStudents());
 
