@@ -1,8 +1,7 @@
 package gui;
 
 import controller.CoursesControllerClass;
-import controller.StudentControllerClass;
-import controller.TeacherControllerClass;
+import controller.PersonController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,23 +12,20 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Course;
 import model.Grades;
-import model.Teacher;
+import model.Person;
 
-import javax.print.DocFlavor;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CourseController implements Initializable {
 
     private NextWindow nextWindow;
-    private StudentControllerClass studentControllerClass;
-    private TeacherControllerClass teacherControllerClass;
+    private PersonController personController;
     private CoursesControllerClass coursesControllerClass;
 
     public CourseController() {
         nextWindow = new NextWindow();
-        studentControllerClass = new StudentControllerClass();
-        teacherControllerClass = new TeacherControllerClass();
+        personController = new PersonController();
         coursesControllerClass = new CoursesControllerClass();
     }
 
@@ -46,7 +42,7 @@ public class CourseController implements Initializable {
     private TableColumn<Grades, Integer> gradeId;
 
     @FXML
-    private TableColumn<Teacher, Integer> teacherId;
+    private TableColumn<Person, Integer> teacherId;
 
 
 
@@ -73,12 +69,12 @@ public class CourseController implements Initializable {
 
     @FXML
     void showStudentList(ActionEvent event) {
-        studentControllerClass.showStudentList(event);
+        personController.showStudentList(event);
     }
 
     @FXML
     void showTeacherList(ActionEvent event) {
-        teacherControllerClass.showTeacherList(event);
+        personController.showTeacherList(event);
     }
 
     @Override
@@ -86,7 +82,7 @@ public class CourseController implements Initializable {
         courseId.setCellValueFactory(new PropertyValueFactory<Course, Integer>("courseId"));
         courseName.setCellValueFactory(new PropertyValueFactory<Course, String>("courseName"));
         gradeId.setCellValueFactory(new PropertyValueFactory<Grades, Integer>("gradeId"));
-        teacherId.setCellValueFactory(new PropertyValueFactory<Teacher, Integer>("teacherId"));
+        teacherId.setCellValueFactory(new PropertyValueFactory<Person, Integer>("teacherId"));
 
         ObservableList<Course> list = FXCollections.observableList(coursesControllerClass.listAllCourses());
 

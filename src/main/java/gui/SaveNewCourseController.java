@@ -1,8 +1,7 @@
 package gui;
 
 import controller.CoursesControllerClass;
-import controller.StudentControllerClass;
-import controller.TeacherControllerClass;
+import controller.PersonController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,14 +15,12 @@ import java.util.ResourceBundle;
 
 public class SaveNewCourseController implements Initializable {
     private NextWindow nextWindow;
-    private StudentControllerClass studentControllerClass;
-    private TeacherControllerClass teacherControllerClass;
+    private PersonController personController;
     private CoursesControllerClass coursesControllerClass;
 
     public SaveNewCourseController() {
         nextWindow = new NextWindow();
-        studentControllerClass = new StudentControllerClass();
-        teacherControllerClass = new TeacherControllerClass();
+        personController = new PersonController();
         coursesControllerClass = new CoursesControllerClass();
     }
 
@@ -35,12 +32,12 @@ public class SaveNewCourseController implements Initializable {
 
     @FXML
     public void showStudentList(ActionEvent event){
-        studentControllerClass.showStudentList(event);
+        personController.showStudentList(event);
     }
 
     @FXML
     public void showTeacherList(ActionEvent event){
-        teacherControllerClass.showTeacherList(event);
+        personController.showTeacherList(event);
     }
 
     @FXML

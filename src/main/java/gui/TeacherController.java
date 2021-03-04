@@ -1,19 +1,16 @@
 package gui;
 
 import controller.CoursesControllerClass;
-import controller.StudentControllerClass;
-import controller.TeacherControllerClass;
+import controller.PersonController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.Teacher;
-import persistence.TeacherRepository;
+import model.Person;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,31 +18,29 @@ import java.util.ResourceBundle;
 public class TeacherController implements Initializable {
 
     private NextWindow nextWindow;
-    private TeacherControllerClass teacherControllerClass;
-    private StudentControllerClass studentControllerClass;
+    private PersonController personController;
     private CoursesControllerClass coursesControllerClass;
 
     public TeacherController() {
         nextWindow = new NextWindow();
-        teacherControllerClass = new TeacherControllerClass();
-        studentControllerClass = new StudentControllerClass();
+        personController = new PersonController();
         coursesControllerClass = new CoursesControllerClass();
     }
 
     @FXML
-    private TableView<Teacher> teachers;
+    private TableView<Person> teachers;
 
     @FXML
-    private TableColumn<Teacher, Integer> teacherId;
+    private TableColumn<Person, Integer> teacherId;
 
     @FXML
-    private TableColumn<Teacher, String> teacherFirstName;
+    private TableColumn<Person, String> teacherFirstName;
 
     @FXML
-    private TableColumn<Teacher, String> teacherLastName;
+    private TableColumn<Person, String> teacherLastName;
 
     @FXML
-    private TableColumn<Teacher, String> address;
+    private TableColumn<Person, String> address;
 
 
     @FXML
@@ -61,12 +56,12 @@ public class TeacherController implements Initializable {
 
     @FXML
     void showStudentList(ActionEvent event) {
-        studentControllerClass.showStudentList(event);
+        personController.showStudentList(event);
     }
 
     @FXML
     void showTeacherList(ActionEvent event) {
-        teacherControllerClass.showTeacherList(event);
+        personController.showTeacherList(event);
     }
 
 
@@ -83,12 +78,12 @@ public class TeacherController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        teacherId.setCellValueFactory(new PropertyValueFactory<Teacher, Integer>("teacherId"));
-        teacherFirstName.setCellValueFactory(new PropertyValueFactory<Teacher, String>("teacherFirstName"));
-        teacherLastName.setCellValueFactory(new PropertyValueFactory<Teacher, String>("teacherLastName"));
-        address.setCellValueFactory(new PropertyValueFactory<Teacher, String>("address"));
+        teacherId.setCellValueFactory(new PropertyValueFactory<Person, Integer>("teacherId"));
+        teacherFirstName.setCellValueFactory(new PropertyValueFactory<Person, String>("teacherFirstName"));
+        teacherLastName.setCellValueFactory(new PropertyValueFactory<Person, String>("teacherLastName"));
+        address.setCellValueFactory(new PropertyValueFactory<Person, String>("address"));
 
-        ObservableList<Teacher> list = FXCollections.observableList(teacherControllerClass.listAllTeachers());
+        ObservableList<Person> list = FXCollections.observableList(personController.listAllTeachers());
 
         if(list.isEmpty()){
             list = FXCollections.emptyObservableList();
