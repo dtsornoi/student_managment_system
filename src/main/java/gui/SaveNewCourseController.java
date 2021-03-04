@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import model.Course;
+import model.Person;
 
 
 import java.net.URL;
@@ -52,7 +53,8 @@ public class SaveNewCourseController implements Initializable {
 
     @FXML
     public void saveNewCourse(ActionEvent event){
-        Course course = new Course(courseNameInput.getText(), teacherNameInput.getText());
+        Person teacher = personController.findTeacherByName(teacherNameInput.getText());
+        Course course = new Course(courseNameInput.getText(), teacher);
         coursesControllerClass.addNewCourse(course);
         nextWindow.closeWindowAndOpenNext(event, "gui/coursesList.fxml");
     }

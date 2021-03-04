@@ -13,8 +13,6 @@ import java.util.ResourceBundle;
 
 public class SaveNewStudentController implements Initializable {
 
-    private NextWindow nextWindow;
-
     private PersonController personController;
     private CoursesControllerClass coursesControllerClass;
 
@@ -30,7 +28,6 @@ public class SaveNewStudentController implements Initializable {
     public SaveNewStudentController(){
         personController = new PersonController();
         coursesControllerClass = new CoursesControllerClass();
-        nextWindow = new NextWindow();
     }
 
     @FXML
@@ -57,7 +54,7 @@ public class SaveNewStudentController implements Initializable {
     public void saveNewStudent(ActionEvent event){
         Person student = new Person(firstNameInput.getText(), lastNameInput.getText(), addressInput.getText(), false);
         personController.addNewPerson(student);
-        nextWindow.closeWindowAndOpenNext(event, "gui/studentsList.fxml");
+        personController.showStudentList(event);
     }
 
     @Override

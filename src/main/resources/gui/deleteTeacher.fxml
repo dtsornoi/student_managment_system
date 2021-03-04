@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DeleteTeacherController">
+    <children>
+        <HBox prefHeight="41.0" prefWidth="600.0">
+            <children>
+                <Button fx:id="studentButton" mnemonicParsing="false" onAction="#showStudentList" prefHeight="40.0" prefWidth="162.0" text="Students" />
+                <Button fx:id="teacherButton" mnemonicParsing="false" onAction="#showTeacherList" prefHeight="40.0" prefWidth="149.0" text="Teachers" />
+                <Button fx:id="courseButton" mnemonicParsing="false" onAction="#showAllCourses" prefHeight="40.0" prefWidth="140.0" text="Courses" />
+                <Button fx:id="gradeButton" mnemonicParsing="false" onAction="#showAllGrades" prefHeight="40.0" prefWidth="163.0" text="Grades" />
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="159.0" prefWidth="600.0">
+            <children>
+                <Label prefHeight="52.0" prefWidth="158.0" text="Enter student id to delete:">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets></Label>
+                <TextField fx:id="studentId" />
+            </children>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <Button mnemonicParsing="false" onAction="#deleteStudent" text="Delete" />
+            </children>
+        </HBox>
+    </children>
+</VBox>

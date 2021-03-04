@@ -41,4 +41,10 @@ public class PersonController {
     public void showTeacherList(ActionEvent event){
         nextWindow.closeWindowAndOpenNext(event, "gui/teachersList.fxml");
     }
+
+    public Person findTeacherByName(String name){
+        Person teacher = new Person();
+        teacher.setFirstName(name);
+        return personRepository.findTeacherByName(teacher);
+    }
 }

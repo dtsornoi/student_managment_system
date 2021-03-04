@@ -22,12 +22,6 @@ public class StudentController implements Initializable {
     private PersonController personController;
     private CoursesControllerClass coursesControllerClass;
 
-    public StudentController(){
-        nextWindow = new NextWindow();
-
-        coursesControllerClass = new CoursesControllerClass();
-    }
-
     @FXML
     private TableView<Person> students;
 
@@ -43,6 +37,12 @@ public class StudentController implements Initializable {
     @FXML
     private TableColumn<Person, String> address;
 
+    public StudentController(){
+        nextWindow = new NextWindow();
+        personController = new PersonController();
+        coursesControllerClass = new CoursesControllerClass();
+    }
+
     @FXML
     public void showStudentList(ActionEvent event){
         personController.showStudentList(event);
@@ -54,12 +54,12 @@ public class StudentController implements Initializable {
     }
 
     @FXML
-    void showAllCourses(ActionEvent event){
+    public void showAllCourses(ActionEvent event){
         coursesControllerClass.showAllCourses(event);
     }
 
     @FXML
-    void showAllGrades(ActionEvent event){
+    public void showAllGrades(ActionEvent event){
         // TODO
     }
 
@@ -75,7 +75,7 @@ public class StudentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        studentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        studentId.setCellValueFactory(new PropertyValueFactory<>("id"));
         firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         address.setCellValueFactory(new PropertyValueFactory<>("address"));
@@ -85,6 +85,7 @@ public class StudentController implements Initializable {
         if (list.isEmpty()) {
             list = FXCollections.emptyObservableList();
         }
+
         students.setItems(list);
     }
 

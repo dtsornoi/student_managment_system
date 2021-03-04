@@ -21,12 +21,6 @@ public class TeacherController implements Initializable {
     private PersonController personController;
     private CoursesControllerClass coursesControllerClass;
 
-    public TeacherController() {
-        nextWindow = new NextWindow();
-        personController = new PersonController();
-        coursesControllerClass = new CoursesControllerClass();
-    }
-
     @FXML
     private TableView<Person> teachers;
 
@@ -43,14 +37,20 @@ public class TeacherController implements Initializable {
     private TableColumn<Person, String> address;
 
 
+    public TeacherController() {
+        nextWindow = new NextWindow();
+        personController = new PersonController();
+        coursesControllerClass = new CoursesControllerClass();
+    }
+
     @FXML
     public void addTeacher(ActionEvent event) {
-        // TODO
+        nextWindow.closeWindowAndOpenNext(event, "gui/addNewTeacher.fxml");
     }
 
     @FXML
     public void deleteTeacher(ActionEvent event){
-       // TODO
+       nextWindow.closeWindowAndOpenNext(event, "gui/deleteTeacher.fxml");
     }
 
 
@@ -78,9 +78,9 @@ public class TeacherController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        teacherId.setCellValueFactory(new PropertyValueFactory<Person, Integer>("teacherId"));
-        teacherFirstName.setCellValueFactory(new PropertyValueFactory<Person, String>("teacherFirstName"));
-        teacherLastName.setCellValueFactory(new PropertyValueFactory<Person, String>("teacherLastName"));
+        teacherId.setCellValueFactory(new PropertyValueFactory<Person, Integer>("id"));
+        teacherFirstName.setCellValueFactory(new PropertyValueFactory<Person, String>("firstName"));
+        teacherLastName.setCellValueFactory(new PropertyValueFactory<Person, String>("lastName"));
         address.setCellValueFactory(new PropertyValueFactory<Person, String>("address"));
 
         ObservableList<Person> list = FXCollections.observableList(personController.listAllTeachers());
