@@ -1,9 +1,11 @@
 package persistence;
 
+import model.Course;
 import model.Grades;
 import util.DBUtil;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class GradesRepository {
     private EntityManager entityManager;
@@ -44,4 +46,5 @@ public class GradesRepository {
             e.printStackTrace();
         }
     }
+
 }

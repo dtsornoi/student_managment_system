@@ -38,13 +38,15 @@ public class TeacherControllerClass {
 
     }
 
+    void deleteTeacher(){
+
+    }
+
+
     public List<Teacher> listAllTeachers(){
         return teacherRepository.allTeachers();
     }
 
-    void deleteTeacher(){
-
-    }
 
     public void showTeacherList(ActionEvent event){
         nextWindow.closeWindowAndOpenNext(event, "gui/teachersList.fxml");

@@ -1,14 +1,13 @@
 package model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "course")
 @Data
 @NoArgsConstructor
+@Entity
+@Table(name = "courses")
 public class Course {
 
     @Id
@@ -26,4 +25,8 @@ public class Course {
     @ManyToOne
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
+
+
+    public Course(String courseName, String teacherName) {
+    }
 }

@@ -7,27 +7,31 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import model.Course;
+
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DeleteStudentController implements Initializable {
 
-    private TeacherControllerClass teacherControllerClass;
-    private StudentControllerClass studentControllerClass;
-    private CoursesControllerClass coursesControllerClass;
+public class SaveNewCourseController implements Initializable {
     private NextWindow nextWindow;
+    private StudentControllerClass studentControllerClass;
+    private TeacherControllerClass teacherControllerClass;
+    private CoursesControllerClass coursesControllerClass;
+
+    public SaveNewCourseController() {
+        nextWindow = new NextWindow();
+        studentControllerClass = new StudentControllerClass();
+        teacherControllerClass = new TeacherControllerClass();
+        coursesControllerClass = new CoursesControllerClass();
+    }
 
     @FXML
-    private TextField studentId;
+    private TextField courseNameInput;
 
-    public DeleteStudentController(){
-        teacherControllerClass = new TeacherControllerClass();
-        studentControllerClass = new StudentControllerClass();
-        coursesControllerClass = new CoursesControllerClass();
-        nextWindow = new NextWindow();
-
-    }
+    @FXML
+    private TextField teacherNameInput;
 
     @FXML
     public void showStudentList(ActionEvent event){
@@ -50,15 +54,15 @@ public class DeleteStudentController implements Initializable {
     }
 
     @FXML
-    public void deleteStudent(ActionEvent event){
-        studentControllerClass.deleteStudent(Integer.parseInt(studentId.getText()));
-        nextWindow.closeWindowAndOpenNext(event, "gui/studentsList.fxml");
+    public void saveNewCourse(ActionEvent event){
+        Course course = new Course(courseNameInput.getText(), teacherNameInput.getText());
+        coursesControllerClass.addNewCourse(course);
+        nextWindow.closeWindowAndOpenNext(event, "gui/coursesList.fxml");
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-
 
 }

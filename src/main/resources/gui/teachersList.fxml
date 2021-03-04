@@ -14,7 +14,7 @@
             <Button fx:id="studentButton" mnemonicParsing="false" onAction="#showStudentList" prefHeight="40.0" prefWidth="162.0" text="Students" />
             <Button fx:id="teacherButton" mnemonicParsing="false" onAction="#showTeacherList" prefHeight="40.0" prefWidth="149.0" text="Teachers" />
             <Button fx:id="courseButton" mnemonicParsing="false" onAction="#showAllCourses" prefHeight="40.0" prefWidth="140.0" text="Courses" />
-            <Button fx:id="gradeButton" mnemonicParsing="false"  onAction="#showAllGrades" prefHeight="40.0" prefWidth="163.0" text="Grades" />
+            <Button fx:id="gradeButton" mnemonicParsing="false" onAction="#showAllGrades" prefHeight="40.0" prefWidth="163.0" text="Grades" />
          </children>
       </HBox>
       <TableView fx:id="teachers" prefHeight="292.0" prefWidth="600.0">
@@ -27,12 +27,12 @@
       </TableView>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="addButton" mnemonicParsing="false"  text="Add">
+            <Button fx:id="addButton" mnemonicParsing="false" onAction="#addTeacher" text="Add">
                <HBox.margin>
                   <Insets right="50.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Delete" />
+            <Button mnemonicParsing="false" onAction="#deleteTeacher" text="Delete" />
          </children>
       </HBox>
    </children>

@@ -4,6 +4,7 @@ import model.Course;
 import util.DBUtil;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class CourseRepository {
     private EntityManager entityManager;
@@ -43,5 +44,10 @@ public class CourseRepository {
             entityManager.getTransaction().rollback();
             e.printStackTrace();
         }
+    }
+
+    public List<Course> allCourses(){
+        String sql = "FROM Course";
+        return entityManager.createQuery(sql).getResultList();
     }
 }
