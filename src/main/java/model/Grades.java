@@ -24,5 +24,5 @@ public class Grades {
 
     @ManyToOne
     @JoinColumn(name = "student_id")
-    private Student student;
+    private Person student;
 }

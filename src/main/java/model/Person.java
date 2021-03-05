@@ -1,18 +1,22 @@
 package model;
 
-import lombok.*;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Entity
-@Table(name = "students")
-public class Student {
+@Table(name = "people")
+public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "student_id")
-    private int studentId;
+    @Column(name = "id")
+    private int id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -23,13 +27,17 @@ public class Student {
     @Column(name = "address")
     private String address;
 
+    @Column(name = "is_teacher")
+    private boolean isTeacher;
+
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
 
-    public Student(String firstName, String lastName, String address) {
+    public Person(String firstName, String lastName, String address, boolean isTeacher) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
+        this.isTeacher = isTeacher;
     }
 }

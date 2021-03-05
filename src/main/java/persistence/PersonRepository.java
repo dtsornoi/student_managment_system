@@ -1,23 +1,22 @@
 package persistence;
 
-import model.Student;
-import model.Teacher;
+import model.Person;
 import util.DBUtil;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class TeacherRepository {
+public class PersonRepository {
     private EntityManager entityManager;
 
-    public TeacherRepository() {
+    public PersonRepository() {
         entityManager = DBUtil.getEntityManager();
     }
 
-    public void save(Teacher teacher){
+    public void save(Person person){
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(teacher);
+            entityManager.persist(person);
             entityManager.getTransaction().commit();
         } catch (Exception e){
             entityManager.getTransaction().rollback();
@@ -25,10 +24,10 @@ public class TeacherRepository {
         }
     }
 
-    public void update(Teacher teacher){
+    public void update(Person person){
         try {
             entityManager.getTransaction().begin();
-            entityManager.merge(teacher);
+            entityManager.merge(person);
             entityManager.getTransaction().commit();
         } catch (Exception e){
             entityManager.getTransaction().rollback();
@@ -36,10 +35,10 @@ public class TeacherRepository {
         }
     }
 
-    public void delete(Teacher teacher){
+    public void delete(Person person){
         try {
             entityManager.getTransaction().begin();
-            entityManager.remove(entityManager.merge(teacher));
+            entityManager.remove(entityManager.merge(person));
             entityManager.getTransaction().commit();
         } catch (Exception e){
             entityManager.getTransaction().rollback();
@@ -47,10 +46,20 @@ public class TeacherRepository {
         }
     }
 
-
-    public List<Teacher> allTeachers() {
-        String sql = "FROM Teacher";
+    public List<Person> allStudents() {
+        String sql = "FROM Person p WHERE p.isTeacher = false";
 
         return entityManager.createQuery(sql).getResultList();
+    }
+
+    public List<Person> allTeachers(){
+        String sql = "FROM Person p WHERE p.isTeacher = true";
+
+        return entityManager.createQuery(sql).getResultList();
+    }
+
+    public Person findTeacherByName(Person person){
+        String sql = "FROM Person p WHERE p.firstName = :name AND p.isTeacher = true";
+        return (Person) entityManager.createQuery(sql).setParameter("name", person.getFirstName()).getSingleResult();
     }
 }
