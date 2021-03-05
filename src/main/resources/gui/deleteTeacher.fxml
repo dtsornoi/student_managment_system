@@ -19,7 +19,7 @@
         </HBox>
         <HBox alignment="CENTER" prefHeight="159.0" prefWidth="600.0">
             <children>
-                <Label prefHeight="52.0" prefWidth="158.0" text="Enter student id to delete:">
+                <Label prefHeight="52.0" prefWidth="158.0" text="Enter teacher id to delete:">
                     <opaqueInsets>
                         <Insets />
                     </opaqueInsets></Label>

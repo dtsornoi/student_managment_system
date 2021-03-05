@@ -42,8 +42,7 @@ public class CourseController implements Initializable {
     private TableColumn<Grades, Integer> gradeId;
 
     @FXML
-    private TableColumn<Person, String> teacherId;
-
+    private TableColumn<Course, String> teacherName;
 
 
     @FXML
@@ -82,7 +81,14 @@ public class CourseController implements Initializable {
         courseId.setCellValueFactory(new PropertyValueFactory<Course, Integer>("courseId"));
         courseName.setCellValueFactory(new PropertyValueFactory<Course, String>("courseName"));
         gradeId.setCellValueFactory(new PropertyValueFactory<Grades, Integer>("gradeId"));
-        teacherId.setCellValueFactory(new PropertyValueFactory<>("teacher"));
+       /* teacherName.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Person, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Person, String> param) {
+                return new SimpleStringProperty (param.getValue().getFirstName());
+            }
+        });*/
+//        teacherName.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getFirstName()));
+          teacherName.setCellValueFactory(new PropertyValueFactory<Course, String>("teacherName"));
 
         ObservableList<Course> list = FXCollections.observableList(coursesControllerClass.listAllCourses());
 
@@ -90,4 +96,6 @@ public class CourseController implements Initializable {
             list = FXCollections.emptyObservableList();
         } courses.setItems(list);
     }
+
+
 }

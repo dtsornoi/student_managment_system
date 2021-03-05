@@ -54,7 +54,7 @@ public class SaveNewCourseController implements Initializable {
     @FXML
     public void saveNewCourse(ActionEvent event){
         Person teacher = personController.findTeacherByName(teacherNameInput.getText());
-        Course course = new Course(courseNameInput.getText(), teacher);
+        Course course = new Course(courseNameInput.getText(), teacherNameInput.getText());
         coursesControllerClass.addNewCourse(course);
         nextWindow.closeWindowAndOpenNext(event, "gui/coursesList.fxml");
     }
