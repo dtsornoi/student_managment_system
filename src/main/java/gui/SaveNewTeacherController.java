@@ -6,50 +6,51 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import model.Person;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DeleteStudentController implements Initializable {
+public class SaveNewTeacherController implements Initializable {
 
+    private NextWindow nextWindow;
     private PersonController personController;
     private CoursesControllerClass coursesControllerClass;
-    private NextWindow nextWindow;
 
     @FXML
-    private TextField studentId;
+    private TextField firstNameInput;
 
-    public DeleteStudentController(){
+    @FXML
+    private TextField lastNameInput;
+
+    @FXML
+    private TextField addressInput;
+
+    public SaveNewTeacherController(){
         personController = new PersonController();
         coursesControllerClass = new CoursesControllerClass();
         nextWindow = new NextWindow();
-
     }
 
-    @FXML
-    public void showStudentList(ActionEvent event){
+    public void showStudentList(ActionEvent event) {
         personController.showStudentList(event);
     }
 
-    @FXML
-    public void showTeacherList(ActionEvent event){
+    public void showTeacherList(ActionEvent event) {
         personController.showTeacherList(event);
     }
 
-    @FXML
-    void showAllCourses(ActionEvent event){
+    public void showAllCourses(ActionEvent event) {
         coursesControllerClass.showAllCourses(event);
     }
 
-    @FXML
-    void showAllGrades(ActionEvent event){
-        // TODO
+    public void showAllGrades(ActionEvent event) {
     }
 
-    @FXML
-    public void deleteStudent(ActionEvent event){
-        personController.deletePerson(Integer.parseInt(studentId.getText()));
-        nextWindow.closeWindowAndOpenNext(event, "gui/studentsList.fxml");
+    public void saveNewTeacher(ActionEvent event) {
+        Person teacher = new Person(firstNameInput.getText(), lastNameInput.getText(), addressInput.getText(), true);
+        personController.addNewPerson(teacher);
+        personController.showTeacherList(event);
     }
 
     @Override

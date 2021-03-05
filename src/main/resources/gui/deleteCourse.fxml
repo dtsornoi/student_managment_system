@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DeleteStudentController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DeleteCourseController">
    <children>
       <HBox prefHeight="41.0" prefWidth="600.0">
          <children>
@@ -19,11 +19,12 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="159.0" prefWidth="600.0">
          <children>
-            <Label prefHeight="52.0" prefWidth="158.0" text="Enter student id to delete:">
+            <Label prefHeight="52.0" prefWidth="158.0" text="Enter course id to delete:">
                <opaqueInsets>
                   <Insets />
-               </opaqueInsets></Label>
-            <TextField fx:id="studentId" />
+               </opaqueInsets>
+            </Label>
+            <TextField fx:id="courseId" />
          </children>
          <opaqueInsets>
             <Insets />
@@ -31,7 +32,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#deleteStudent" text="Delete" />
+            <Button mnemonicParsing="false" onAction="#deleteCourse" text="Delete" />
          </children>
       </HBox>
    </children>

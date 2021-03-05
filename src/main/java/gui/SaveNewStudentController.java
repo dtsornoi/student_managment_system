@@ -1,23 +1,20 @@
 package gui;
 
-import controller.StudentControllerClass;
+import controller.CoursesControllerClass;
+import controller.PersonController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
-import model.Student;
-import persistence.StudentRepository;
+import model.Person;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SaveNewStudentController implements Initializable {
 
-    private NextWindow nextWindow;
-
-    private StudentControllerClass studentControllerClass;
+    private PersonController personController;
+    private CoursesControllerClass coursesControllerClass;
 
     @FXML
     private TextField firstNameInput;
@@ -29,24 +26,41 @@ public class SaveNewStudentController implements Initializable {
     private TextField addressInput;
 
     public SaveNewStudentController(){
-        studentControllerClass = new StudentControllerClass();
-        nextWindow = new NextWindow();
+        personController = new PersonController();
+        coursesControllerClass = new CoursesControllerClass();
     }
 
     @FXML
     public void showStudentList(ActionEvent event){
-        studentControllerClass.showStudentList(event);
+        personController.showStudentList(event);
+    }
+
+    @FXML
+    public void showTeacherList(ActionEvent event){
+        personController.showTeacherList(event);
+    }
+
+    @FXML
+    void showAllCourses(ActionEvent event){
+        coursesControllerClass.showAllCourses(event);
+    }
+
+    @FXML
+    void showAllGrades(ActionEvent event){
+        // TODO
     }
 
     @FXML
     public void saveNewStudent(ActionEvent event){
-        Student student = new Student(firstNameInput.getText(), lastNameInput.getText(), addressInput.getText());
-        studentControllerClass.addNewStudent(student);
-        nextWindow.closeWindowAndOpenNext(event, "gui/studentsList.fxml");
+        Person student = new Person(firstNameInput.getText(), lastNameInput.getText(), addressInput.getText(), false);
+        personController.addNewPerson(student);
+        personController.showStudentList(event);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+
 }

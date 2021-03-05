@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SaveNewStudentController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SaveNewCourseController">
    <children>
       <HBox prefHeight="40.0" prefWidth="600.0">
          <children>
@@ -19,8 +19,8 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
          <children>
-            <Label prefHeight="92.0" prefWidth="144.0" text="First Name:" />
-            <TextField fx:id="firstNameInput" />
+            <Label prefHeight="92.0" prefWidth="144.0" text="Course Name:" />
+            <TextField fx:id="courseNameInput" />
          </children>
          <VBox.margin>
             <Insets top="60.0" />
@@ -28,19 +28,13 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
          <children>
-            <Label prefHeight="71.0" prefWidth="143.0" text="Last Name:" />
-            <TextField fx:id="lastNameInput" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
-         <children>
-            <Label prefHeight="71.0" prefWidth="143.0" text="Address:" />
-            <TextField fx:id="addressInput" />
+            <Label prefHeight="71.0" prefWidth="143.0" text="Teacher Name:" />
+            <TextField fx:id="teacherNameInput" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="save" alignment="CENTER" mnemonicParsing="false" onAction="#saveNewStudent" text="Save" />
+            <Button fx:id="save" alignment="CENTER" mnemonicParsing="false" onAction="#saveNewCourse" text="Save" />
          </children>
       </HBox>
    </children>

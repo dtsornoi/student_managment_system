@@ -10,16 +10,15 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DeleteStudentController implements Initializable {
-
+public class DeleteCourseController implements Initializable {
     private PersonController personController;
     private CoursesControllerClass coursesControllerClass;
     private NextWindow nextWindow;
 
     @FXML
-    private TextField studentId;
+    private TextField courseId;
 
-    public DeleteStudentController(){
+    public DeleteCourseController(){
         personController = new PersonController();
         coursesControllerClass = new CoursesControllerClass();
         nextWindow = new NextWindow();
@@ -47,13 +46,15 @@ public class DeleteStudentController implements Initializable {
     }
 
     @FXML
-    public void deleteStudent(ActionEvent event){
-        personController.deletePerson(Integer.parseInt(studentId.getText()));
-        nextWindow.closeWindowAndOpenNext(event, "gui/studentsList.fxml");
+    public void deleteCourse(ActionEvent event){
+        coursesControllerClass.deleteCourse(Integer.parseInt(courseId.getText()));
+        nextWindow.closeWindowAndOpenNext(event, "gui/coursesList.fxml");
     }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
 }

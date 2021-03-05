@@ -6,25 +6,30 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import model.Course;
+import model.Person;
+
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DeleteStudentController implements Initializable {
 
+public class SaveNewCourseController implements Initializable {
+    private NextWindow nextWindow;
     private PersonController personController;
     private CoursesControllerClass coursesControllerClass;
-    private NextWindow nextWindow;
 
-    @FXML
-    private TextField studentId;
-
-    public DeleteStudentController(){
+    public SaveNewCourseController() {
+        nextWindow = new NextWindow();
         personController = new PersonController();
         coursesControllerClass = new CoursesControllerClass();
-        nextWindow = new NextWindow();
-
     }
+
+    @FXML
+    private TextField courseNameInput;
+
+    @FXML
+    private TextField teacherNameInput;
 
     @FXML
     public void showStudentList(ActionEvent event){
@@ -47,13 +52,16 @@ public class DeleteStudentController implements Initializable {
     }
 
     @FXML
-    public void deleteStudent(ActionEvent event){
-        personController.deletePerson(Integer.parseInt(studentId.getText()));
-        nextWindow.closeWindowAndOpenNext(event, "gui/studentsList.fxml");
+    public void saveNewCourse(ActionEvent event){
+        Person teacher = personController.findTeacherByName(teacherNameInput.getText());
+        Course course = new Course(courseNameInput.getText(), teacher);
+        coursesControllerClass.addNewCourse(course);
+        nextWindow.closeWindowAndOpenNext(event, "gui/coursesList.fxml");
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
 }
