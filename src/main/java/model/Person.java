@@ -39,4 +39,9 @@ public class Person {
         this.address = address;
         this.isTeacher = isTeacher;
     }
+
+    @Override
+    public String toString() {
+        return firstName;
+    }
 }

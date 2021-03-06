@@ -19,9 +19,6 @@ public class Course {
     @Column(name = "course_name")
     private String courseName;
 
-    @Column(name = "teacher_name")
-    private String teacherName;
-
     @ManyToOne
     @JoinColumn(name = "grade_id")
     private Grades grades;
@@ -30,9 +27,8 @@ public class Course {
     @JoinColumn(name = "teacher_id")
     private Person teacher;
 
-
-    public Course(String courseName, String teacherName) {
+    public Course(String courseName, Person teacher) {
         this.courseName = courseName;
-        this.teacherName = teacherName;
+        this.teacher = teacher;
     }
 }
