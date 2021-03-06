@@ -1,6 +1,5 @@
 package model;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -39,5 +38,10 @@ public class Person {
         this.lastName = lastName;
         this.address = address;
         this.isTeacher = isTeacher;
+    }
+
+    @Override
+    public String toString() {
+        return firstName;
     }
 }

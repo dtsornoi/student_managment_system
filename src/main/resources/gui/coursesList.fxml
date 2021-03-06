@@ -22,7 +22,7 @@
             <TableColumn fx:id="courseId" prefWidth="157.0" text="ID" />
             <TableColumn fx:id="courseName" prefWidth="144.0" text="Course" />
             <TableColumn fx:id="gradeId" prefWidth="140.0" text="Grade" />
-            <TableColumn fx:id="teacherId" prefWidth="158.0" text="Teacher" />
+            <TableColumn fx:id="teacherName" prefWidth="158.0" text="Teacher" />
          </columns>
       </TableView>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">

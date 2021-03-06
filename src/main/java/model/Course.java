@@ -5,11 +5,12 @@ import lombok.*;
 import javax.persistence.*;
 
 @Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name = "courses")
 public class Course {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "course_id")
@@ -25,10 +26,6 @@ public class Course {
     @ManyToOne
     @JoinColumn(name = "teacher_id")
     private Person teacher;
-
-
-    public Course(String courseName, String teacherName) {
-    }
 
     public Course(String courseName, Person teacher) {
         this.courseName = courseName;
