@@ -3,9 +3,12 @@ package gui;
 import controller.CoursesControllerClass;
 import controller.GradesControllerClass;
 import controller.PersonController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import model.Course;
 import model.Grades;
@@ -32,6 +35,9 @@ public class SaveNewGradeController implements Initializable {
 
     @FXML
     private TextField studentNameInput;
+
+    @FXML
+    private ComboBox coursesList;
 
     @FXML
     public void showStudentList(ActionEvent event){
@@ -61,8 +67,16 @@ public class SaveNewGradeController implements Initializable {
         nextWindow.closeWindowAndOpenNext(event, "gui/gradesList.fxml");
     }
 
+    @FXML
+    void selectCourseFromMenu(ActionEvent event) {
+       coursesList.getSelectionModel().getSelectedItem().toString();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        ObservableList<String> list = FXCollections.observableArrayList("Java Fundamentals",
+                "Java Advanced", "Clean Code", "Testing", "SQL", "JDBC", "Hibernate", "HTML/CSS", "Javascript");
 
+        coursesList.setItems(list);
     }
 }
