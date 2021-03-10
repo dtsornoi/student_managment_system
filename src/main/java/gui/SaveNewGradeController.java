@@ -57,7 +57,7 @@ public class SaveNewGradeController implements Initializable {
     public void saveNewGrade(ActionEvent event){
         Person student = personController.findStudentByName(studentNameInput.getText());
         Grades grades = new Grades(gradeInput.getText(), student);
-        gradesControllerClass.addNewGrade(grades);
+        gradesControllerClass.addGrade(grades);
         nextWindow.closeWindowAndOpenNext(event, "gui/gradesList.fxml");
     }
 

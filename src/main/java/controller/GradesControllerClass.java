@@ -16,7 +16,7 @@ public class GradesControllerClass {
         nextWindow = new NextWindow();
     }
 
-    public void addNewGrade (Grades grades){
+    public void addGrade (Grades grades){
         gradesRepository.save(grades);
     }
 

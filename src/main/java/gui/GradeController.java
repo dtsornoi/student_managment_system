@@ -49,7 +49,7 @@ public class GradeController implements Initializable {
 
     @FXML
     public void addGrade(ActionEvent event) {
-        nextWindow.closeWindowAndOpenNext(event, "saveNewGrade.fxml");
+        nextWindow.closeWindowAndOpenNext(event, "gui/saveNewGrade.fxml");
     }
 
     @FXML
