@@ -22,6 +22,7 @@ public class SaveNewGradeController implements Initializable {
     private PersonController personController;
     private CoursesControllerClass courseControllerClass;
     private GradesControllerClass gradesControllerClass;
+    private String courseName;
 
     public SaveNewGradeController() {
         nextWindow = new NextWindow();
@@ -63,13 +64,16 @@ public class SaveNewGradeController implements Initializable {
     public void saveNewGrade(ActionEvent event){
         Person student = personController.findStudentByName(studentNameInput.getText());
         Grades grades = new Grades(gradeInput.getText(), student);
+        Course course = new Course();
+        course.setCourseName(courseName);
+        grades.setCourse(course);
         gradesControllerClass.addGrade(grades);
         nextWindow.closeWindowAndOpenNext(event, "gui/gradesList.fxml");
     }
 
     @FXML
     void selectCourseFromMenu(ActionEvent event) {
-       coursesList.getSelectionModel().getSelectedItem().toString();
+       courseName = coursesList.getSelectionModel().getSelectedItem().toString();
     }
 
     @Override
