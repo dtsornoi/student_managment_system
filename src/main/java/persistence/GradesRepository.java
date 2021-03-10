@@ -47,4 +47,9 @@ public class GradesRepository {
         }
     }
 
+    public List<Grades> allGrades(){
+        String sql = "FROM Grades";
+        return entityManager.createQuery(sql).getResultList();
+    }
+
 }

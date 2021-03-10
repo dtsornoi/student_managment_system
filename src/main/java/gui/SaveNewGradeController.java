@@ -1,32 +1,36 @@
 package gui;
 
-import controller.CoursesControllerClass;
 import controller.GradesControllerClass;
 import controller.PersonController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import model.Course;
+import model.Grades;
+import model.Person;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DeleteCourseController implements Initializable {
-    private PersonController personController;
-    private CoursesControllerClass coursesControllerClass;
-    private GradesControllerClass gradesControllerClass;
+public class SaveNewGradeController implements Initializable {
     private NextWindow nextWindow;
+    private PersonController personController;
+    private CourseController courseController;
+    private GradesControllerClass gradesControllerClass;
+
+    public SaveNewGradeController() {
+        nextWindow = new NextWindow();
+        personController = new PersonController();
+        courseController = new CourseController();
+        gradesControllerClass = new GradesControllerClass();
+    }
 
     @FXML
-    private TextField courseId;
+    private TextField gradeInput;
 
-    public DeleteCourseController(){
-        personController = new PersonController();
-        coursesControllerClass = new CoursesControllerClass();
-        gradesControllerClass = new GradesControllerClass();
-        nextWindow = new NextWindow();
-
-    }
+    @FXML
+    private TextField studentNameInput;
 
     @FXML
     public void showStudentList(ActionEvent event){
@@ -40,7 +44,7 @@ public class DeleteCourseController implements Initializable {
 
     @FXML
     void showAllCourses(ActionEvent event){
-        coursesControllerClass.showAllCourses(event);
+        courseController.showAllCourses(event);
     }
 
     @FXML
@@ -49,15 +53,15 @@ public class DeleteCourseController implements Initializable {
     }
 
     @FXML
-    public void deleteCourse(ActionEvent event){
-        coursesControllerClass.deleteCourse(Integer.parseInt(courseId.getText()));
-        nextWindow.closeWindowAndOpenNext(event, "gui/coursesList.fxml");
+    public void saveNewGrade(ActionEvent event){
+        Person student = personController.findStudentByName(studentNameInput.getText());
+        Grades grades = new Grades(gradeInput.getText(), student);
+        gradesControllerClass.addNewGrade(grades);
+        nextWindow.closeWindowAndOpenNext(event, "gui/gradesList.fxml");
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-
 }

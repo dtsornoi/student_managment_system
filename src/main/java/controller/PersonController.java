@@ -47,4 +47,10 @@ public class PersonController {
         teacher.setFirstName(name);
         return personRepository.findTeacherByName(teacher);
     }
+
+    public Person findStudentByName(String name){
+        Person student = new Person();
+        student.setFirstName(name);
+        return personRepository.findStudentByName(student);
+    }
 }

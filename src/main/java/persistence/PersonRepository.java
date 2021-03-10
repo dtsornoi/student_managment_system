@@ -62,4 +62,9 @@ public class PersonRepository {
         String sql = "FROM Person p WHERE p.firstName = :name AND p.isTeacher = true";
         return (Person) entityManager.createQuery(sql).setParameter("name", person.getFirstName()).getSingleResult();
     }
+
+    public Person findStudentByName(Person person){
+        String sql = "FROM Person p WHERE p.firstName = :name AND p.isTeacher = false";
+        return (Person) entityManager.createQuery(sql).setParameter("name", person.getFirstName()).getSingleResult();
+    }
 }

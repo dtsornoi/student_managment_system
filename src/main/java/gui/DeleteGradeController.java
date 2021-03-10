@@ -1,6 +1,5 @@
 package gui;
 
-import controller.CoursesControllerClass;
 import controller.GradesControllerClass;
 import controller.PersonController;
 import javafx.event.ActionEvent;
@@ -11,21 +10,20 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DeleteCourseController implements Initializable {
+public class DeleteGradeController implements Initializable {
     private PersonController personController;
-    private CoursesControllerClass coursesControllerClass;
+    private CourseController courseController;
     private GradesControllerClass gradesControllerClass;
     private NextWindow nextWindow;
 
     @FXML
-    private TextField courseId;
+    private TextField gradeId;
 
-    public DeleteCourseController(){
+    public DeleteGradeController() {
         personController = new PersonController();
-        coursesControllerClass = new CoursesControllerClass();
+        courseController = new CourseController();
         gradesControllerClass = new GradesControllerClass();
         nextWindow = new NextWindow();
-
     }
 
     @FXML
@@ -40,18 +38,18 @@ public class DeleteCourseController implements Initializable {
 
     @FXML
     void showAllCourses(ActionEvent event){
-        coursesControllerClass.showAllCourses(event);
+        courseController.showAllCourses(event);
     }
 
     @FXML
     void showAllGrades(ActionEvent event){
-        gradesControllerClass.showAllGrades(event);
+        // TODO
     }
 
     @FXML
-    public void deleteCourse(ActionEvent event){
-        coursesControllerClass.deleteCourse(Integer.parseInt(courseId.getText()));
-        nextWindow.closeWindowAndOpenNext(event, "gui/coursesList.fxml");
+    public void deleteGrade(ActionEvent event){
+       gradesControllerClass.deleteGrade(Integer.parseInt(gradeId.getText()));
+        nextWindow.closeWindowAndOpenNext(event, "gui/gradesList.fxml");
     }
 
 
@@ -59,5 +57,4 @@ public class DeleteCourseController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-
 }

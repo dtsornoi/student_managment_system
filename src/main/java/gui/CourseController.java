@@ -22,11 +22,13 @@ public class CourseController implements Initializable {
     private NextWindow nextWindow;
     private PersonController personController;
     private CoursesControllerClass coursesControllerClass;
+    private GradeController gradeController;
 
     public CourseController() {
         nextWindow = new NextWindow();
         personController = new PersonController();
         coursesControllerClass = new CoursesControllerClass();
+        gradeController = new GradeController();
     }
 
     @FXML
@@ -63,7 +65,7 @@ public class CourseController implements Initializable {
 
     @FXML
     void showAllGrades(ActionEvent event) {
-        // TODO
+       // TODO
     }
 
     @FXML
