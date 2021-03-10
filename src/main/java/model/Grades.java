@@ -26,7 +26,7 @@ public class Grades {
     @JoinColumn(name = "student_id")
     private Person student;
 
-    public Grades(String gradeInput, Person student) {
+    public Grades(String gradeInput, Person student, Course course) {
         this.grade = gradeInput;
         this.student = student;
         this.course = course;

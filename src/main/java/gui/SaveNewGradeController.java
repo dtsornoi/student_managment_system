@@ -63,10 +63,8 @@ public class SaveNewGradeController implements Initializable {
     @FXML
     public void saveNewGrade(ActionEvent event){
         Person student = personController.findStudentByName(studentNameInput.getText());
-        Grades grades = new Grades(gradeInput.getText(), student);
-        Course course = new Course();
-        course.setCourseName(courseName);
-        grades.setCourse(course);
+        Course course = courseControllerClass.findCourseByName(coursesList.getSelectionModel().getSelectedItem().toString());
+        Grades grades = new Grades(gradeInput.getText(), student , course);
         gradesControllerClass.addGrade(grades);
         nextWindow.closeWindowAndOpenNext(event, "gui/gradesList.fxml");
     }
