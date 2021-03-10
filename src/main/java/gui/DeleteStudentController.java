@@ -1,6 +1,7 @@
 package gui;
 
 import controller.CoursesControllerClass;
+import controller.GradesControllerClass;
 import controller.PersonController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ public class DeleteStudentController implements Initializable {
 
     private PersonController personController;
     private CoursesControllerClass coursesControllerClass;
+    private GradesControllerClass gradesControllerClass;
     private NextWindow nextWindow;
 
     @FXML
@@ -22,6 +24,7 @@ public class DeleteStudentController implements Initializable {
     public DeleteStudentController(){
         personController = new PersonController();
         coursesControllerClass = new CoursesControllerClass();
+        gradesControllerClass = new GradesControllerClass();
         nextWindow = new NextWindow();
 
     }
@@ -43,7 +46,7 @@ public class DeleteStudentController implements Initializable {
 
     @FXML
     void showAllGrades(ActionEvent event){
-        // TODO
+        gradesControllerClass.showAllGrades(event);
     }
 
     @FXML

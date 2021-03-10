@@ -1,6 +1,7 @@
 package gui;
 
 import controller.CoursesControllerClass;
+import controller.GradesControllerClass;
 import controller.PersonController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,11 +19,14 @@ public class SaveNewCourseController implements Initializable {
     private NextWindow nextWindow;
     private PersonController personController;
     private CoursesControllerClass coursesControllerClass;
+    private GradesControllerClass gradesControllerClass;
 
     public SaveNewCourseController() {
         nextWindow = new NextWindow();
         personController = new PersonController();
         coursesControllerClass = new CoursesControllerClass();
+        gradesControllerClass = new GradesControllerClass();
+
     }
 
     @FXML
@@ -48,7 +52,7 @@ public class SaveNewCourseController implements Initializable {
 
     @FXML
     void showAllGrades(ActionEvent event){
-        // TODO
+        gradesControllerClass.showAllGrades(event);
     }
 
     @FXML

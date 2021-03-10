@@ -1,6 +1,7 @@
 package gui;
 
 import controller.CoursesControllerClass;
+import controller.GradesControllerClass;
 import controller.PersonController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ public class SaveNewTeacherController implements Initializable {
     private NextWindow nextWindow;
     private PersonController personController;
     private CoursesControllerClass coursesControllerClass;
+    private GradesControllerClass gradesControllerClass;
 
     @FXML
     private TextField firstNameInput;
@@ -45,6 +47,7 @@ public class SaveNewTeacherController implements Initializable {
     }
 
     public void showAllGrades(ActionEvent event) {
+        gradesControllerClass.showAllGrades(event);
     }
 
     public void saveNewTeacher(ActionEvent event) {

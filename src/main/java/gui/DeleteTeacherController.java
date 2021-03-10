@@ -1,6 +1,7 @@
 package gui;
 
 import controller.CoursesControllerClass;
+import controller.GradesControllerClass;
 import controller.PersonController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import java.util.ResourceBundle;
 public class DeleteTeacherController implements Initializable {
     private PersonController personController;
     private CoursesControllerClass coursesControllerClass;
+    private GradesControllerClass gradesControllerClass;
 
     @FXML
     private TextField studentId;
@@ -20,6 +22,7 @@ public class DeleteTeacherController implements Initializable {
     public DeleteTeacherController(){
         personController = new PersonController();
         coursesControllerClass = new CoursesControllerClass();
+        gradesControllerClass = new GradesControllerClass();
     }
 
     @FXML
@@ -39,7 +42,7 @@ public class DeleteTeacherController implements Initializable {
 
     @FXML
     void showAllGrades(ActionEvent event){
-        // TODO
+        gradesControllerClass.showAllGrades(event);
     }
 
     @FXML

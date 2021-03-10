@@ -3,6 +3,7 @@ package controller;
 import gui.NextWindow;
 import javafx.event.ActionEvent;
 import model.Course;
+import model.Person;
 import persistence.CourseRepository;
 
 
@@ -35,5 +36,11 @@ public class CoursesControllerClass {
 
     public void showAllCourses(ActionEvent event){
         nextWindow.closeWindowAndOpenNext(event,"gui/coursesList.fxml");
+    }
+
+    public Course findCourseByName(String name){
+       Course course = new Course();
+       course.setCourseName(name);
+       return courseRepository.findCourseByName(course);
     }
 }

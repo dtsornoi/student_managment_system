@@ -1,6 +1,7 @@
 package gui;
 
 import controller.CoursesControllerClass;
+import controller.GradesControllerClass;
 import controller.PersonController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,6 +22,7 @@ public class StudentController implements Initializable {
     private NextWindow nextWindow;
     private PersonController personController;
     private CoursesControllerClass coursesControllerClass;
+    private GradesControllerClass gradesControllerClass;
 
     @FXML
     private TableView<Person> students;
@@ -41,6 +43,7 @@ public class StudentController implements Initializable {
         nextWindow = new NextWindow();
         personController = new PersonController();
         coursesControllerClass = new CoursesControllerClass();
+        gradesControllerClass = new GradesControllerClass();
     }
 
     @FXML
@@ -60,7 +63,7 @@ public class StudentController implements Initializable {
 
     @FXML
     public void showAllGrades(ActionEvent event){
-        // TODO
+        gradesControllerClass.showAllGrades(event);
     }
 
     @FXML
