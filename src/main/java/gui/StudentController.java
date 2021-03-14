@@ -39,6 +39,12 @@ public class StudentController implements Initializable {
     @FXML
     private TableColumn<Person, String> address;
 
+    @FXML
+    private TableColumn<Person, String> courseInTable;
+
+    @FXML
+    private ObservableList<Person> list;
+
     public StudentController(){
         nextWindow = new NextWindow();
         personController = new PersonController();
@@ -83,10 +89,12 @@ public class StudentController implements Initializable {
         lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         address.setCellValueFactory(new PropertyValueFactory<>("address"));
 
-        ObservableList<Person> list = FXCollections.observableList(personController.listAllStudents());
+        list = FXCollections.observableList(personController.listAllStudents());
 
         if (list.isEmpty()) {
             list = FXCollections.emptyObservableList();
+        }else{
+            courseInTable.setCellValueFactory(new PropertyValueFactory<>("course"));
         }
 
         students.setItems(list);

@@ -2,6 +2,7 @@ package gui;
 
 import controller.CoursesControllerClass;
 import controller.GradesControllerClass;
+import controller.LoginController;
 import controller.PersonController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,6 +23,7 @@ public class TeacherController implements Initializable {
     private PersonController personController;
     private CoursesControllerClass coursesControllerClass;
     private GradesControllerClass gradesControllerClass;
+    private LoginController loginController;
 
     @FXML
     private TableView<Person> teachers;
@@ -44,6 +46,7 @@ public class TeacherController implements Initializable {
         personController = new PersonController();
         coursesControllerClass = new CoursesControllerClass();
         gradesControllerClass = new GradesControllerClass();
+        loginController = new LoginController();
     }
 
     @FXML
@@ -90,6 +93,7 @@ public class TeacherController implements Initializable {
 
         if(list.isEmpty()){
             list = FXCollections.emptyObservableList();
-        } teachers.setItems(list);
+        }
+        teachers.setItems(list);
     }
 }

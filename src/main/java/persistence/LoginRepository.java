@@ -44,4 +44,16 @@ public class LoginRepository {
             e.printStackTrace();
         }
     }
+
+    public Login findByUsername(String username){
+        String sql = "FROM Login l WHERE l.username=:username";
+
+        return entityManager.createQuery(sql, Login.class).setParameter("username", username).getSingleResult();
+    }
+
+    public Login findByPassword(String password){
+        String sql = "FROM Login l WHERE l.password=:password";
+
+        return entityManager.createQuery(sql, Login.class).setParameter("password", password).getSingleResult();
+    }
 }
