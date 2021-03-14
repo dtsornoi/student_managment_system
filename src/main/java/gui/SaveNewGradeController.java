@@ -15,7 +15,9 @@ import model.Grades;
 import model.Person;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class SaveNewGradeController implements Initializable {
     private NextWindow nextWindow;
@@ -63,7 +65,11 @@ public class SaveNewGradeController implements Initializable {
     @FXML
     public void saveNewGrade(ActionEvent event){
         Person student = personController.findStudentByName(studentNameInput.getText());
-        Course course = courseControllerClass.findCourseByName(coursesList.getSelectionModel().getSelectedItem().toString());
+        Course course = courseControllerClass
+                .findCourseByName(coursesList
+                        .getSelectionModel()
+                        .getSelectedItem()
+                        .toString());
         Grades grades = new Grades(gradeInput.getText(), student , course);
         gradesControllerClass.addGrade(grades);
         nextWindow.closeWindowAndOpenNext(event, "gui/gradesList.fxml");
@@ -76,8 +82,11 @@ public class SaveNewGradeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ObservableList<String> list = FXCollections.observableArrayList("Java Fundamentals",
-                "Java Advanced", "Clean Code", "Testing", "SQL", "JDBC", "Hibernate", "HTML/CSS", "Javascript");
+        List<Course> courses = courseControllerClass.listAllCourses();
+        List<String> coursesName = courses.stream()
+                .map(course -> course.getCourseName())
+                .collect(Collectors.toList());
+        ObservableList<String> list = FXCollections.observableArrayList(coursesName);
 
         coursesList.setItems(list);
     }
