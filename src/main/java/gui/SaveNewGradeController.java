@@ -64,12 +64,12 @@ public class SaveNewGradeController implements Initializable {
 
     @FXML
     public void saveNewGrade(ActionEvent event){
-        Person student = personController.findStudentByName(studentNameInput.getText());
         Course course = courseControllerClass
                 .findCourseByName(coursesList
                         .getSelectionModel()
                         .getSelectedItem()
                         .toString());
+        Person student = personController.findStudentByNameAndCourse(studentNameInput.getText(), course);
         Grades grades = new Grades(gradeInput.getText(), student , course);
         gradesControllerClass.addGrade(grades);
         nextWindow.closeWindowAndOpenNext(event, "gui/gradesList.fxml");
