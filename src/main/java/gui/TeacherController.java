@@ -1,8 +1,5 @@
 package gui;
 
-import controller.CoursesControllerClass;
-import controller.GradesControllerClass;
-import controller.LoginController;
 import controller.PersonController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,36 +14,27 @@ import model.Person;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TeacherController implements Initializable {
+public class TeacherController extends Menu implements Initializable {
 
-    private NextWindow nextWindow;
-    private PersonController personController;
-    private CoursesControllerClass coursesControllerClass;
-    private GradesControllerClass gradesControllerClass;
-    private LoginController loginController;
+    private final NextWindow nextWindow;
+    private final PersonController personController;
 
     @FXML
     private TableView<Person> teachers;
-
     @FXML
     private TableColumn<Person, Integer> teacherId;
-
     @FXML
     private TableColumn<Person, String> teacherFirstName;
-
     @FXML
     private TableColumn<Person, String> teacherLastName;
-
     @FXML
     private TableColumn<Person, String> address;
 
 
     public TeacherController() {
+        super();
         nextWindow = new NextWindow();
         personController = new PersonController();
-        coursesControllerClass = new CoursesControllerClass();
-        gradesControllerClass = new GradesControllerClass();
-        loginController = new LoginController();
     }
 
     @FXML
@@ -59,27 +47,6 @@ public class TeacherController implements Initializable {
        nextWindow.closeWindowAndOpenNext(event, "gui/deleteTeacher.fxml");
     }
 
-
-    @FXML
-    void showStudentList(ActionEvent event) {
-        personController.showStudentList(event);
-    }
-
-    @FXML
-    void showTeacherList(ActionEvent event) {
-        personController.showTeacherList(event);
-    }
-
-
-    @FXML
-    void showAllCourses(ActionEvent event){
-        coursesControllerClass.showAllCourses(event);
-    }
-
-    @FXML
-    void showAllGrades(ActionEvent event){
-         gradesControllerClass.showAllGrades(event);
-    }
 
 
     @Override

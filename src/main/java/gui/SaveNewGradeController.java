@@ -19,14 +19,14 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public class SaveNewGradeController implements Initializable {
-    private NextWindow nextWindow;
-    private PersonController personController;
-    private CoursesControllerClass courseControllerClass;
-    private GradesControllerClass gradesControllerClass;
-    private String courseName;
+public class SaveNewGradeController extends Menu implements Initializable {
+    private final NextWindow nextWindow;
+    private final PersonController personController;
+    private final CoursesControllerClass courseControllerClass;
+    private final GradesControllerClass gradesControllerClass;
 
     public SaveNewGradeController() {
+        super();
         nextWindow = new NextWindow();
         personController = new PersonController();
         courseControllerClass = new CoursesControllerClass();
@@ -40,35 +40,14 @@ public class SaveNewGradeController implements Initializable {
     private TextField studentNameInput;
 
     @FXML
-    private ComboBox coursesList;
-
-    @FXML
-    public void showStudentList(ActionEvent event){
-        personController.showStudentList(event);
-    }
-
-    @FXML
-    public void showTeacherList(ActionEvent event){
-        personController.showTeacherList(event);
-    }
-
-    @FXML
-    void showAllCourses(ActionEvent event){
-        courseControllerClass.showAllCourses(event);
-    }
-
-    @FXML
-    void showAllGrades(ActionEvent event){
-        gradesControllerClass.showAllGrades(event);
-    }
+    private ComboBox<String> coursesList;
 
     @FXML
     public void saveNewGrade(ActionEvent event){
         Course course = courseControllerClass
                 .findCourseByName(coursesList
                         .getSelectionModel()
-                        .getSelectedItem()
-                        .toString());
+                        .getSelectedItem());
         Person student = personController.findStudentByNameAndCourse(studentNameInput.getText(), course);
         Grades grades = new Grades(gradeInput.getText(), student , course);
         gradesControllerClass.addGrade(grades);
@@ -77,14 +56,14 @@ public class SaveNewGradeController implements Initializable {
 
     @FXML
     void selectCourseFromMenu(ActionEvent event) {
-       courseName = coursesList.getSelectionModel().getSelectedItem().toString();
+        String courseName = coursesList.getSelectionModel().getSelectedItem();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         List<Course> courses = courseControllerClass.listAllCourses();
         List<String> coursesName = courses.stream()
-                .map(course -> course.getCourseName())
+                .map(Course::getCourseName)
                 .collect(Collectors.toList());
         ObservableList<String> list = FXCollections.observableArrayList(coursesName);
 

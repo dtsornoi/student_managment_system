@@ -1,8 +1,6 @@
 package gui;
 
 import controller.CoursesControllerClass;
-import controller.GradesControllerClass;
-import controller.PersonController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,38 +10,30 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Course;
-import model.Grades;
 import model.Person;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CourseController implements Initializable {
+public class CourseController extends Menu implements Initializable {
 
-    private NextWindow nextWindow;
-    private PersonController personController;
-    private CoursesControllerClass coursesControllerClass;
-    private GradesControllerClass gradesControllerClass;
-
-    public CourseController() {
-        nextWindow = new NextWindow();
-        personController = new PersonController();
-        coursesControllerClass = new CoursesControllerClass();
-        gradesControllerClass = new GradesControllerClass();
-    }
+    private final NextWindow nextWindow;
+    private final CoursesControllerClass coursesControllerClass;
 
     @FXML
     private TableView<Course> courses;
-
     @FXML
     private TableColumn<Course, Integer> courseId;
-
     @FXML
     private TableColumn<Course, String> courseName;
-
     @FXML
     private TableColumn<Person, String> teacherName;
 
+    public CourseController() {
+        super();
+        nextWindow = new NextWindow();
+        coursesControllerClass = new CoursesControllerClass();
+    }
 
     @FXML
     public void addCourse(ActionEvent event) {
@@ -53,27 +43,6 @@ public class CourseController implements Initializable {
     @FXML
     public void deleteCourse(ActionEvent event){
         nextWindow.closeWindowAndOpenNext(event, "gui/deleteCourse.fxml");
-    }
-
-
-    @FXML
-    void showAllCourses(ActionEvent event) {
-        coursesControllerClass.showAllCourses(event);
-    }
-
-    @FXML
-    void showAllGrades(ActionEvent event) {
-       gradesControllerClass.showAllGrades(event);
-    }
-
-    @FXML
-    void showStudentList(ActionEvent event) {
-        personController.showStudentList(event);
-    }
-
-    @FXML
-    void showTeacherList(ActionEvent event) {
-        personController.showTeacherList(event);
     }
 
     @Override

@@ -15,18 +15,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class SaveNewCourseController implements Initializable {
-    private NextWindow nextWindow;
-    private PersonController personController;
-    private CoursesControllerClass coursesControllerClass;
-    private GradesControllerClass gradesControllerClass;
+public class SaveNewCourseController extends Menu implements Initializable{
+    private final NextWindow nextWindow;
+    private final PersonController personController;
+    private final CoursesControllerClass coursesControllerClass;
 
     public SaveNewCourseController() {
+        super();
         nextWindow = new NextWindow();
         personController = new PersonController();
         coursesControllerClass = new CoursesControllerClass();
-        gradesControllerClass = new GradesControllerClass();
-
     }
 
     @FXML
@@ -35,25 +33,6 @@ public class SaveNewCourseController implements Initializable {
     @FXML
     private TextField teacherNameInput;
 
-    @FXML
-    public void showStudentList(ActionEvent event){
-        personController.showStudentList(event);
-    }
-
-    @FXML
-    public void showTeacherList(ActionEvent event){
-        personController.showTeacherList(event);
-    }
-
-    @FXML
-    void showAllCourses(ActionEvent event){
-        coursesControllerClass.showAllCourses(event);
-    }
-
-    @FXML
-    void showAllGrades(ActionEvent event){
-        gradesControllerClass.showAllGrades(event);
-    }
 
     @FXML
     public void saveNewCourse(ActionEvent event){

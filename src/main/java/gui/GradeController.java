@@ -1,8 +1,6 @@
 package gui;
 
-import controller.CoursesControllerClass;
 import controller.GradesControllerClass;
-import controller.PersonController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,17 +16,14 @@ import model.Person;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GradeController implements Initializable {
+public class GradeController extends Menu implements Initializable {
 
-    private NextWindow nextWindow;
-    private PersonController personController;
-    private CoursesControllerClass courseControllerClass;
-    private GradesControllerClass gradesControllerClass;
+    private final NextWindow nextWindow;
+    private final GradesControllerClass gradesControllerClass;
 
     public GradeController() {
+        super();
         nextWindow = new NextWindow();
-        personController = new PersonController();
-        courseControllerClass = new CoursesControllerClass();
         gradesControllerClass = new GradesControllerClass();
     }
 
@@ -55,26 +50,6 @@ public class GradeController implements Initializable {
     @FXML
     public void deleteGrade(ActionEvent event){
         nextWindow.closeWindowAndOpenNext(event, "gui/deleteGrade.fxml");
-    }
-
-   @FXML
-    void showAllCourses(ActionEvent event) {
-        courseControllerClass.showAllCourses(event);
-    }
-
-    @FXML
-    void showAllGrades(ActionEvent event) {
-        gradesControllerClass.showAllGrades(event);
-    }
-
-   @FXML
-    void showStudentList(ActionEvent event) {
-        personController.showStudentList(event);
-    }
-
-   @FXML
-    void showTeacherList(ActionEvent event) {
-        personController.showTeacherList(event);
     }
 
     @Override

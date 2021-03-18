@@ -3,13 +3,11 @@ package gui;
 import controller.LoginController;
 
 import controller.PersonController;
-import exceptions.NoSuchUsernameOrPasswordException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import model.Login;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,10 +20,10 @@ public class LoginControllerGui implements Initializable {
     private TextField passwordInput;
 
     @FXML
-    private Alert alert = new Alert(Alert.AlertType.NONE);
+    private final Alert alert = new Alert(Alert.AlertType.NONE);
 
-    private LoginController loginController;
-    private PersonController personController;
+    private final LoginController loginController;
+    private final PersonController personController;
 
     public LoginControllerGui(){
         loginController = new LoginController();
