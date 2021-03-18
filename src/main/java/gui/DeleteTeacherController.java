@@ -1,6 +1,5 @@
 package gui;
 
-import controller.CoursesControllerClass;
 import controller.PersonController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,36 +9,15 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DeleteTeacherController implements Initializable {
-    private PersonController personController;
-    private CoursesControllerClass coursesControllerClass;
+public class DeleteTeacherController extends Menu implements Initializable {
+    private final PersonController personController;
 
     @FXML
     private TextField studentId;
 
     public DeleteTeacherController(){
+        super();
         personController = new PersonController();
-        coursesControllerClass = new CoursesControllerClass();
-    }
-
-    @FXML
-    public void showStudentList(ActionEvent event){
-        personController.showStudentList(event);
-    }
-
-    @FXML
-    public void showTeacherList(ActionEvent event){
-        personController.showTeacherList(event);
-    }
-
-    @FXML
-    void showAllCourses(ActionEvent event){
-        coursesControllerClass.showAllCourses(event);
-    }
-
-    @FXML
-    void showAllGrades(ActionEvent event){
-        // TODO
     }
 
     @FXML

@@ -47,4 +47,14 @@ public class GradesRepository {
         }
     }
 
+    public List<Grades> allGrades(){
+        String sql = "FROM Grades";
+        return entityManager.createQuery(sql).getResultList();
+    }
+
+    public Course findCourseByName(Course course){
+        String sql = "FROM Course c WHERE c.courseName = :name";
+        return (Course) entityManager.createQuery(sql).setParameter("name", course.getCourseName()).getSingleResult();
+    }
+
 }

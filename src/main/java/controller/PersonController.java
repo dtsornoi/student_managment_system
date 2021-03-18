@@ -2,6 +2,7 @@ package controller;
 
 import gui.NextWindow;
 import javafx.event.ActionEvent;
+import model.Course;
 import model.Person;
 import persistence.PersonRepository;
 
@@ -46,5 +47,15 @@ public class PersonController {
         Person teacher = new Person();
         teacher.setFirstName(name);
         return personRepository.findTeacherByName(teacher);
+    }
+
+    public Person findStudentByName(String name){
+        Person student = new Person();
+        student.setFirstName(name);
+        return personRepository.findStudentByName(student);
+    }
+
+    public Person findStudentByNameAndCourse(String name, Course course){
+        return personRepository.findStudentByNameAndCourse(name, course);
     }
 }

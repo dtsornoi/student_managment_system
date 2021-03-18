@@ -2,8 +2,10 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -11,18 +13,37 @@
    <children>
       <HBox prefHeight="56.0" prefWidth="600.0">
          <children>
-            <Button fx:id="studentButton" mnemonicParsing="false" onAction="#showStudentList" prefHeight="40.0" prefWidth="162.0" text="Students" />
-            <Button fx:id="teacherButton" mnemonicParsing="false" onAction="#showTeacherList" prefHeight="40.0" prefWidth="149.0" text="Teachers" />
-            <Button fx:id="courseButton" mnemonicParsing="false" onAction="#showAllCourses" prefHeight="40.0" prefWidth="140.0" text="Courses" />
-            <Button fx:id="gradeButton" mnemonicParsing="false" onAction="#showAllGrades" prefHeight="40.0" prefWidth="163.0" text="Grades" />
+            <ButtonBar focusTraversable="false" prefHeight="40.0" prefWidth="576.0">
+               <buttons>
+                  <Button fx:id="studentButton" mnemonicParsing="false" onAction="#showStudentList" prefHeight="40.0" prefWidth="315.0" style="-fx-border-color: #000; -fx-border-width: 0.1px;" stylesheets="@../css/styles.css" text="Students">
+                     <effect>
+                        <Blend mode="HARD_LIGHT" />
+                     </effect>
+                  </Button>
+                  <Button fx:id="teacherButton" focusTraversable="false" mnemonicParsing="false" onAction="#showTeacherList" prefHeight="40.0" prefWidth="149.0" style="-fx-border-color: #000; -fx-border-width: 0.1px;" text="Teachers">
+                     <effect>
+                        <Blend mode="HARD_LIGHT" />
+                     </effect>
+                  </Button>
+                  <Button fx:id="courseButton" focusTraversable="false" mnemonicParsing="false" onAction="#showAllCourses" prefHeight="40.0" prefWidth="140.0" style="-fx-border-color: #000; -fx-border-width: 0.1px;" text="Courses">
+                     <effect>
+                        <Blend mode="HARD_LIGHT" />
+                     </effect>
+                  </Button>
+                  <Button fx:id="gradeButton" focusTraversable="false" minWidth="0.0" mnemonicParsing="false" onAction="#showAllGrades" prefHeight="40.0" prefWidth="163.0" style="-fx-border-color: #000; -fx-border-width: 0.1px;" text="Grades">
+                     <effect>
+                        <Blend mode="HARD_LIGHT" />
+                     </effect>
+                  </Button>
+               </buttons>
+            </ButtonBar>
          </children>
       </HBox>
       <TableView fx:id="courses" prefHeight="292.0" prefWidth="600.0">
          <columns>
-            <TableColumn fx:id="courseId" prefWidth="157.0" text="ID" />
-            <TableColumn fx:id="courseName" prefWidth="144.0" text="Course" />
-            <TableColumn fx:id="gradeId" prefWidth="140.0" text="Grade" />
-            <TableColumn fx:id="teacherName" prefWidth="158.0" text="Teacher" />
+            <TableColumn fx:id="courseId" prefWidth="227.33337914943695" text="ID" />
+            <TableColumn fx:id="courseName" prefWidth="155.33323669433594" text="Course" />
+            <TableColumn fx:id="teacherName" prefWidth="215.33328247070312" text="Teacher" />
          </columns>
       </TableView>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">

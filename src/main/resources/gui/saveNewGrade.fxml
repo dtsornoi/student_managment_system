@@ -3,14 +3,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SaveNewTeacherController">
-    <children>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SaveNewGradeController">
+   <children>
       <HBox prefHeight="56.0" prefWidth="600.0">
          <children>
             <ButtonBar focusTraversable="false" prefHeight="40.0" prefWidth="576.0">
@@ -39,31 +40,31 @@
             </ButtonBar>
          </children>
       </HBox>
-        <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
-            <children>
-                <Label prefHeight="92.0" prefWidth="144.0" text="First Name:" />
-                <TextField fx:id="firstNameInput" />
-            </children>
-            <VBox.margin>
-                <Insets top="60.0" />
-            </VBox.margin>
-        </HBox>
-        <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
-            <children>
-                <Label prefHeight="71.0" prefWidth="143.0" text="Last Name:" />
-                <TextField fx:id="lastNameInput" />
-            </children>
-        </HBox>
-        <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
-            <children>
-                <Label prefHeight="71.0" prefWidth="143.0" text="Address:" />
-                <TextField fx:id="addressInput" />
-            </children>
-        </HBox>
-        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-            <children>
-                <Button fx:id="save" alignment="CENTER" mnemonicParsing="false" onAction="#saveNewTeacher" text="Save" />
-            </children>
-        </HBox>
-    </children>
+      <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
+         <children>
+            <Label prefHeight="92.0" prefWidth="144.0" text="Grade:" />
+            <TextField fx:id="gradeInput" />
+         </children>
+         <VBox.margin>
+            <Insets top="60.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
+         <children>
+            <Label prefHeight="71.0" prefWidth="143.0" text="Student Name:" />
+            <TextField fx:id="studentNameInput" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
+         <children>
+            <Label prefHeight="71.0" prefWidth="143.0" text="Courses:" />
+            <ComboBox fx:id="coursesList" onAction="#selectCourseFromMenu" prefWidth="150.0" promptText="Choose course" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="193.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="save" alignment="CENTER" mnemonicParsing="false" onAction="#saveNewGrade" text="Save" />
+         </children>
+      </HBox>
+   </children>
 </VBox>

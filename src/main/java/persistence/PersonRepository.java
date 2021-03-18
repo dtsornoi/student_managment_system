@@ -1,5 +1,6 @@
 package persistence;
 
+import model.Course;
 import model.Person;
 import util.DBUtil;
 
@@ -61,5 +62,19 @@ public class PersonRepository {
     public Person findTeacherByName(Person person){
         String sql = "FROM Person p WHERE p.firstName = :name AND p.isTeacher = true";
         return (Person) entityManager.createQuery(sql).setParameter("name", person.getFirstName()).getSingleResult();
+    }
+
+    public Person findStudentByName(Person person){
+        String sql = "FROM Person p WHERE p.firstName = :name AND p.isTeacher = false";
+        return (Person) entityManager.createQuery(sql).setParameter("name", person.getFirstName()).getSingleResult();
+    }
+
+    public Person findStudentByNameAndCourse(String name, Course course){
+        String sql = "FROM Person p WHERE p.firstName = :name AND p.course.courseName = :courseName";
+
+        return entityManager.createQuery(sql, Person.class)
+                .setParameter("name", name)
+                .setParameter("courseName", course.getCourseName())
+                .getSingleResult();
     }
 }
